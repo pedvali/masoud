@@ -8,25 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-landscape text-white font-sans overflow-hidden">
+<body class="bg-cartoon text-white font-sans overflow-hidden">
 
     <!-- Welcome Screen Overlay -->
     <div id="welcomeScreen" class="fixed inset-0 z-[3000] flex items-center justify-center p-6">
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop');">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop');">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60"></div>
         </div>
         
         <div class="relative z-10 w-full max-w-sm">
-            <div class="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-8 shadow-2xl">
+            <div class="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-8 shadow-2xl cartoon-card">
                 <div class="flex items-center gap-4 mb-6">
-                    <img src="https://via.placeholder.com/80" alt="Wheel" class="w-20 h-20 rounded-2xl object-cover">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center cartoon-icon">
+                        <i class="fas fa-star text-3xl text-white"></i>
+                    </div>
                     <div>
-                        <h2 class="text-2xl font-black">خوش آمدی</h2>
-                        <p class="text-lg opacity-80"><span id="welcomeUserName">کاربر گرامی</span> عزیز</p>
+                        <h2 class="text-2xl font-black cartoon-text">خوش آمدی</h2>
+                        <p class="text-lg opacity-80 cartoon-text"><span id="welcomeUserName">کاربر گرامی</span> عزیز</p>
                     </div>
                 </div>
-                <button onclick="startApp()" class="w-full bg-gradient-to-r from-green-500 to-blue-600 text-white py-4 rounded-2xl font-black text-lg active:scale-95 transition-all shadow-lg">
-                    شروع گردونه
+                <button onclick="startApp()" class="w-full bg-gradient-to-r from-pink-400 to-purple-500 text-white py-4 rounded-2xl font-black text-lg active:scale-95 transition-all shadow-lg cartoon-btn">
+                    🎮 شروع بازی
                 </button>
             </div>
         </div>
@@ -36,30 +38,30 @@
     <div id="mainApp" class="hidden h-screen flex flex-col pb-24">
         
         <header class="px-6 py-6 flex items-center justify-between relative">
-            <button onclick="showPage('profilePage')" class="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 active:scale-90 transition-all">
+            <button onclick="showPage('profilePage')" class="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 active:scale-90 transition-all cartoon-btn">
                 <i class="fas fa-user text-lg"></i>
             </button>
 
             <div class="absolute left-1/2 -translate-x-1/2">
-                <h1 class="text-xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-                    GAMEINO LAND
+                <h1 class="text-xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] cartoon-text">
+                    🎮 GAMEINO LAND 🎮
                 </h1>
             </div>
 
-            <div class="flex items-center gap-2 bg-purple-900/30 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-purple-500/30">
-                <span id="userBalance" class="text-sm font-bold">۰</span>
-                <i class="fas fa-gem text-purple-400 text-xs"></i>
+            <div class="flex items-center gap-2 bg-purple-900/30 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-purple-500/30 cartoon-card">
+                <span id="userBalance" class="text-sm font-bold cartoon-text">۰</span>
+                <i class="fas fa-gem text-purple-400 text-xs cartoon-icon"></i>
             </div>
 
             <!-- Admin Button (Hidden by default) -->
-            <button id="adminBtn" onclick="showPage('adminPage')" class="hidden w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-500 backdrop-blur-md rounded-full flex items-center justify-center border border-yellow-300/30 active:scale-90 transition-all shadow-lg">
+            <button id="adminBtn" onclick="showPage('adminPage')" class="hidden w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-500 backdrop-blur-md rounded-full flex items-center justify-center border border-yellow-300/30 active:scale-90 transition-all shadow-lg cartoon-btn">
                 <i class="fas fa-crown text-lg text-white"></i>
             </button>
         </header>
 
         <div class="px-6 mb-4">
-            <div onclick="showPage('leaderboardPage')" class="flex justify-between items-center opacity-80 hover:opacity-100 transition-all cursor-pointer">
-                <span class="text-sm font-bold">لیدربورد</span>
+            <div onclick="showPage('leaderboardPage')" class="flex justify-between items-center opacity-80 hover:opacity-100 transition-all cursor-pointer cartoon-card p-3 rounded-2xl">
+                <span class="text-sm font-bold cartoon-text">🏆 لیدربورد</span>
                 <i class="fas fa-chevron-left text-xs"></i>
             </div>
         </div>
@@ -67,178 +69,178 @@
         <div id="mainPage" class="flex-1 overflow-y-auto px-6 space-y-6">
             
             <!-- Mission Box -->
-            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2.5rem] flex justify-between items-center shadow-xl">
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2.5rem] flex justify-between items-center shadow-xl cartoon-card">
                 <div>
-                    <h4 class="font-bold text-lg mb-1">انجام ماموریت ها</h4>
-                    <p class="text-xs opacity-60">امتیاز کسب کن و جایزه ببر</p>
+                    <h4 class="font-bold text-lg mb-1 cartoon-text">🚀 انجام ماموریت ها</h4>
+                    <p class="text-xs opacity-60 cartoon-text">امتیاز کسب کن و جایزه ببر</p>
                 </div>
-                <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
-                    <i class="fas fa-user-astronaut text-2xl text-white"></i>
+                <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg cartoon-icon">
+                    <i class="fas fa-rocket text-2xl text-white"></i>
                 </div>
             </div>
 
             <!-- Invite Friends Box -->
-            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2.5rem] shadow-xl">
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2.5rem] shadow-xl cartoon-card">
                 <div class="flex items-center justify-between mb-4">
-                    <h4 class="font-bold text-lg">دعوت دوستان</h4>
+                    <h4 class="font-bold text-lg cartoon-text">👥 دعوت دوستان</h4>
                     <div class="flex items-center gap-2">
-                        <i class="fas fa-gem text-purple-400"></i>
-                        <i class="fas fa-gem text-purple-400"></i>
+                        <i class="fas fa-gem text-purple-400 cartoon-icon"></i>
+                        <i class="fas fa-gem text-purple-400 cartoon-icon"></i>
                     </div>
                 </div>
                 <div class="flex gap-3">
-                    <div class="flex-1 bg-white/5 p-4 rounded-2xl border border-white/10">
-                        <p class="text-xs opacity-60 mb-1">رتبه فعلی</p>
-                        <p id="userRank" class="text-xl font-black text-cyan-400">۱۲۴</p>
+                    <div class="flex-1 bg-white/5 p-4 rounded-2xl border border-white/10 cartoon-card">
+                        <p class="text-xs opacity-60 mb-1 cartoon-text">رتبه فعلی</p>
+                        <p id="userRank" class="text-xl font-black text-cyan-400 cartoon-text">۱۲۴</p>
                     </div>
-                    <div class="flex-1 bg-white/5 p-4 rounded-2xl border border-white/10">
-                        <p class="text-xs opacity-60 mb-1">دعوت های موفق</p>
-                        <p id="inviteCount" class="text-xl font-black text-green-400">۸</p>
+                    <div class="flex-1 bg-white/5 p-4 rounded-2xl border border-white/10 cartoon-card">
+                        <p class="text-xs opacity-60 mb-1 cartoon-text">دعوت های موفق</p>
+                        <p id="inviteCount" class="text-xl font-black text-green-400 cartoon-text">۸</p>
                     </div>
                 </div>
             </div>
 
-            <div class="drawing-card weekly-gradient rounded-[2.5rem] p-7 relative overflow-hidden shadow-[0_20px_50px_rgba(30,64,175,0.3)]">
+            <div class="drawing-card weekly-gradient rounded-[2.5rem] p-7 relative overflow-hidden shadow-[0_20px_50px_rgba(30,64,175,0.3)] cartoon-card">
                 <div class="relative z-10">
                     <div class="flex items-center gap-2 mb-2">
-                        <i class="far fa-clock text-[10px] opacity-70"></i>
-                        <span class="text-[10px] font-medium opacity-70">جمعه‌ها ساعت ۲۱:۰۰</span>
+                        <i class="far fa-clock text-[10px] opacity-70 cartoon-icon"></i>
+                        <span class="text-[10px] font-medium opacity-70 cartoon-text">جمعه‌ها ساعت ۲۱:۰۰</span>
                     </div>
-                    <h3 class="text-2xl font-black mb-1">قرعه‌کشی هفتگی</h3>
-                    <p class="text-xs opacity-60">جایزه ویژه: ۱۰۰ میلیون تومان</p>
-                    <button onclick="enterLottery('weekly')" class="mt-6 bg-white text-blue-900 px-8 py-2.5 rounded-2xl font-black text-sm active:scale-95 transition-all">ورود</button>
+                    <h3 class="text-2xl font-black mb-1 cartoon-text">🎁 قرعه‌کشی هفتگی</h3>
+                    <p class="text-xs opacity-60 cartoon-text">جایزه ویژه: ۱۰۰ میلیون تومان</p>
+                    <button onclick="enterLottery('weekly')" class="mt-6 bg-white text-blue-900 px-8 py-2.5 rounded-2xl font-black text-sm active:scale-95 transition-all cartoon-btn">ورود</button>
                 </div>
-                <i class="fas fa-trophy absolute -bottom-4 -left-4 text-9xl opacity-10 -rotate-12"></i>
+                <i class="fas fa-trophy absolute -bottom-4 -left-4 text-9xl opacity-10 -rotate-12 cartoon-icon"></i>
             </div>
 
-            <div class="drawing-card monthly-gradient rounded-[2.5rem] p-7 relative overflow-hidden shadow-[0_20px_50px_rgba(88,28,135,0.3)]">
+            <div class="drawing-card monthly-gradient rounded-[2.5rem] p-7 relative overflow-hidden shadow-[0_20px_50px_rgba(88,28,135,0.3)] cartoon-card">
                 <div class="relative z-10">
                     <div class="flex items-center gap-2 mb-2">
-                        <i class="far fa-calendar-alt text-[10px] opacity-70"></i>
-                        <span class="text-[10px] font-medium opacity-70">اول هر ماه</span>
+                        <i class="far fa-calendar-alt text-[10px] opacity-70 cartoon-icon"></i>
+                        <span class="text-[10px] font-medium opacity-70 cartoon-text">اول هر ماه</span>
                     </div>
-                    <h3 class="text-2xl font-black mb-1">قرعه‌کشی ماهانه</h3>
-                    <p class="text-xs opacity-60">بزرگترین جایزه فصل</p>
-                    <button onclick="enterLottery('monthly')" class="mt-6 bg-white text-purple-900 px-8 py-2.5 rounded-2xl font-black text-sm active:scale-95 transition-all">ورود</button>
+                    <h3 class="text-2xl font-black mb-1 cartoon-text">👑 قرعه‌کشی ماهانه</h3>
+                    <p class="text-xs opacity-60 cartoon-text">بزرگترین جایزه فصل</p>
+                    <button onclick="enterLottery('monthly')" class="mt-6 bg-white text-purple-900 px-8 py-2.5 rounded-2xl font-black text-sm active:scale-95 transition-all cartoon-btn">ورود</button>
                 </div>
-                <i class="fas fa-crown absolute -bottom-4 -left-4 text-9xl opacity-10 -rotate-12"></i>
+                <i class="fas fa-crown absolute -bottom-4 -left-4 text-9xl opacity-10 -rotate-12 cartoon-icon"></i>
             </div>
 
-            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2.5rem] flex justify-between items-center shadow-xl">
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2.5rem] flex justify-between items-center shadow-xl cartoon-card">
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                    <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-cyan-500/20 cartoon-icon">
                         <i class="fas fa-dice-d20 text-xl text-white"></i>
                     </div>
                     <div>
-                        <h4 class="font-bold text-sm">کاستوم روم</h4>
+                        <h4 class="font-bold text-sm cartoon-text">🎲 کاستوم روم</h4>
                     </div>
                 </div>
-                <button onclick="enterCustomRoom()" class="bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-5 py-2 rounded-xl text-xs font-bold active:scale-95 transition-all">ورود</button>
+                <button onclick="enterCustomRoom()" class="bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-5 py-2 rounded-xl text-xs font-bold active:scale-95 transition-all cartoon-btn">ورود</button>
             </div>
 
         </div>
 
         <!-- Navigation - Right to Left Order -->
-        <nav class="fixed bottom-6 left-6 right-6 h-20 bg-black/40 backdrop-blur-2xl rounded-[2.5rem] border border-white/10 flex items-center justify-around px-2">
-            <a href="#" onclick="showPage('winnersPage')" class="nav-item opacity-40 flex flex-col items-center gap-1">
-                <i class="fas fa-trophy text-lg"></i>
-                <span class="text-[10px]">برندگان</span>
+        <nav class="fixed bottom-6 left-6 right-6 h-20 bg-black/40 backdrop-blur-2xl rounded-[2.5rem] border border-white/10 flex items-center justify-around px-2 cartoon-card">
+            <a href="#" onclick="showPage('winnersPage')" class="nav-item opacity-40 flex flex-col items-center gap-1 cartoon-btn">
+                <i class="fas fa-trophy text-lg cartoon-icon"></i>
+                <span class="text-[10px] cartoon-text">برندگان</span>
             </a>
-            <a href="#" onclick="showPage('tasksPage')" class="nav-item opacity-40 flex flex-col items-center gap-1">
-                <i class="fas fa-tasks text-lg"></i>
-                <span class="text-[10px]">تسک‌ها</span>
+            <a href="#" onclick="showPage('tasksPage')" class="nav-item opacity-40 flex flex-col items-center gap-1 cartoon-btn">
+                <i class="fas fa-tasks text-lg cartoon-icon"></i>
+                <span class="text-[10px] cartoon-text">تسک‌ها</span>
             </a>
             <a href="#" onclick="showPage('mainPage')" class="nav-item active flex flex-col items-center gap-1">
-                <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-1 border border-white/20">
-                    <i class="fas fa-home text-xl text-white"></i>
+                <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-1 border border-white/20 cartoon-card">
+                    <i class="fas fa-home text-xl text-white cartoon-icon"></i>
                 </div>
             </a>
-            <a href="#" onclick="showPage('invitePage')" class="nav-item opacity-40 flex flex-col items-center gap-1">
-                <i class="fas fa-user-friends text-lg"></i>
-                <span class="text-[10px]">دعوت</span>
+            <a href="#" onclick="showPage('invitePage')" class="nav-item opacity-40 flex flex-col items-center gap-1 cartoon-btn">
+                <i class="fas fa-user-friends text-lg cartoon-icon"></i>
+                <span class="text-[10px] cartoon-text">دعوت</span>
             </a>
-            <a href="#" onclick="showPage('settingsPage')" class="nav-item opacity-40 flex flex-col items-center gap-1">
-                <i class="fas fa-cog text-lg"></i>
-                <span class="text-[10px]">تنظیمات</span>
+            <a href="#" onclick="showPage('settingsPage')" class="nav-item opacity-40 flex flex-col items-center gap-1 cartoon-btn">
+                <i class="fas fa-cog text-lg cartoon-icon"></i>
+                <span class="text-[10px] cartoon-text">تنظیمات</span>
             </a>
         </nav>
     </div>
 
     <!-- Profile Page -->
-    <div id="profilePage" class="fixed inset-0 bg-landscape z-[2000] hidden flex flex-col px-8 pt-12">
-        <button onclick="showPage('mainPage')" class="text-right mb-8 opacity-50"><i class="fas fa-arrow-right ml-2"></i> بازگشت</button>
+    <div id="profilePage" class="fixed inset-0 bg-cartoon z-[2000] hidden flex flex-col px-8 pt-12">
+        <button onclick="showPage('mainPage')" class="text-right mb-8 opacity-50 cartoon-btn"><i class="fas fa-arrow-right ml-2"></i> بازگشت</button>
         <div class="flex flex-col items-center mb-10">
-            <div class="w-24 h-24 rounded-full border-4 border-cyan-500/30 p-1 mb-4">
+            <div class="w-24 h-24 rounded-full border-4 border-cyan-500/30 p-1 mb-4 cartoon-card">
                 <img id="u_avatar" src="https://via.placeholder.com/100" class="w-full h-full rounded-full object-cover">
             </div>
-            <h2 id="u_name" class="text-2xl font-black">نام کاربر</h2>
-            <p class="text-xs text-cyan-400 mt-1">ID: <span id="u_id">---</span></p>
+            <h2 id="u_name" class="text-2xl font-black cartoon-text">نام کاربر</h2>
+            <p class="text-xs text-cyan-400 mt-1 cartoon-text">ID: <span id="u_id">---</span></p>
         </div>
         <div class="space-y-4">
-            <div class="bg-white/5 p-5 rounded-[2rem] border border-white/10 flex justify-between">
-                <span class="opacity-60 text-sm">تسک‌های انجام شده</span>
-                <span id="u_tasks" class="font-bold">۰</span>
+            <div class="bg-white/5 p-5 rounded-[2rem] border border-white/10 flex justify-between cartoon-card">
+                <span class="opacity-60 text-sm cartoon-text">تسک‌های انجام شده</span>
+                <span id="u_tasks" class="font-bold cartoon-text">۰</span>
             </div>
-            <div class="bg-white/5 p-5 rounded-[2rem] border border-white/10 flex justify-between">
-                <span class="opacity-60 text-sm">جوایز برنده شده</span>
-                <span id="u_prizes" class="font-bold text-green-400">۰</span>
+            <div class="bg-white/5 p-5 rounded-[2rem] border border-white/10 flex justify-between cartoon-card">
+                <span class="opacity-60 text-sm cartoon-text">جوایز برنده شده</span>
+                <span id="u_prizes" class="font-bold text-green-400 cartoon-text">۰</span>
             </div>
         </div>
     </div>
 
     <!-- Admin Page -->
-    <div id="adminPage" class="fixed inset-0 bg-landscape z-[2000] hidden flex flex-col px-8 pt-12">
-        <button onclick="showPage('mainPage')" class="text-right mb-8 opacity-50"><i class="fas fa-arrow-right ml-2"></i> بازگشت</button>
+    <div id="adminPage" class="fixed inset-0 bg-cartoon z-[2000] hidden flex flex-col px-8 pt-12">
+        <button onclick="showPage('mainPage')" class="text-right mb-8 opacity-50 cartoon-btn"><i class="fas fa-arrow-right ml-2"></i> بازگشت</button>
         
         <div class="mb-8">
-            <h2 class="text-3xl font-black text-center mb-2">👑 پنل مدیریت</h2>
-            <p class="text-center opacity-60">مدیریت کامل سیستم گیمینو لند</p>
+            <h2 class="text-3xl font-black text-center mb-2 cartoon-text">👑 پنل مدیریت</h2>
+            <p class="text-center opacity-60 cartoon-text">مدیریت کامل سیستم گیمینو لند</p>
         </div>
 
         <div class="grid grid-cols-2 gap-4 mb-6">
-            <button onclick="showUserPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all">
-                <i class="fas fa-users text-3xl text-blue-400"></i>
-                <span class="font-bold">پنل کاربری</span>
-                <span class="text-xs opacity-60">مدیریت کاربران</span>
+            <button onclick="showUserPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all cartoon-card cartoon-btn">
+                <i class="fas fa-users text-3xl text-blue-400 cartoon-icon"></i>
+                <span class="font-bold cartoon-text">پنل کاربری</span>
+                <span class="text-xs opacity-60 cartoon-text">مدیریت کاربران</span>
             </button>
             
-            <button onclick="showLotteryPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all">
-                <i class="fas fa-gift text-3xl text-purple-400"></i>
-                <span class="font-bold">مدیریت قرعه‌کشی</span>
-                <span class="text-xs opacity-60">ایجاد و مدیریت قرعه‌کشی‌ها</span>
+            <button onclick="showLotteryPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all cartoon-card cartoon-btn">
+                <i class="fas fa-gift text-3xl text-purple-400 cartoon-icon"></i>
+                <span class="font-bold cartoon-text">مدیریت قرعه‌کشی</span>
+                <span class="text-xs opacity-60 cartoon-text">ایجاد و مدیریت قرعه‌کشی‌ها</span>
             </button>
             
-            <button onclick="showTaskPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all">
-                <i class="fas fa-tasks text-3xl text-green-400"></i>
-                <span class="font-bold">مدیریت تسک‌ها</span>
-                <span class="text-xs opacity-60">ایجاد و مدیریت ماموریت‌ها</span>
+            <button onclick="showTaskPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all cartoon-card cartoon-btn">
+                <i class="fas fa-tasks text-3xl text-green-400 cartoon-icon"></i>
+                <span class="font-bold cartoon-text">مدیریت تسک‌ها</span>
+                <span class="text-xs opacity-60 cartoon-text">ایجاد و مدیریت ماموریت‌ها</span>
             </button>
             
-            <button onclick="showRoomPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all">
-                <i class="fas fa-dice text-3xl text-cyan-400"></i>
-                <span class="font-bold">مدیریت روم‌ها</span>
-                <span class="text-xs opacity-60">ایجاد و مدیریت کاستوم روم‌ها</span>
+            <button onclick="showRoomPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all cartoon-card cartoon-btn">
+                <i class="fas fa-dice text-3xl text-cyan-400 cartoon-icon"></i>
+                <span class="font-bold cartoon-text">مدیریت روم‌ها</span>
+                <span class="text-xs opacity-60 cartoon-text">ایجاد و مدیریت کاستوم روم‌ها</span>
             </button>
         </div>
 
-        <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2rem]">
-            <h3 class="font-bold text-lg mb-4">آمار سریع</h3>
+        <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2rem] cartoon-card">
+            <h3 class="font-bold text-lg mb-4 cartoon-text">📊 آمار سریع</h3>
             <div class="grid grid-cols-2 gap-4">
                 <div class="text-center">
-                    <p class="text-2xl font-black text-blue-400">۱,۲۳۴</p>
-                    <p class="text-xs opacity-60">کل کاربران</p>
+                    <p class="text-2xl font-black text-blue-400 cartoon-text">۱,۲۳۴</p>
+                    <p class="text-xs opacity-60 cartoon-text">کل کاربران</p>
                 </div>
                 <div class="text-center">
-                    <p class="text-2xl font-black text-green-400">۸۵۶</p>
-                    <p class="text-xs opacity-60">کاربران فعال</p>
+                    <p class="text-2xl font-black text-green-400 cartoon-text">۸۵۶</p>
+                    <p class="text-xs opacity-60 cartoon-text">کاربران فعال</p>
                 </div>
                 <div class="text-center">
-                    <p class="text-2xl font-black text-purple-400">۴۲</p>
-                    <p class="text-xs opacity-60">قرعه‌کشی فعال</p>
+                    <p class="text-2xl font-black text-purple-400 cartoon-text">۴۲</p>
+                    <p class="text-xs opacity-60 cartoon-text">قرعه‌کشی فعال</p>
                 </div>
                 <div class="text-center">
-                    <p class="text-2xl font-black text-orange-400">۱۵</p>
-                    <p class="text-xs opacity-60">روم‌های فعال</p>
+                    <p class="text-2xl font-black text-orange-400 cartoon-text">۱۵</p>
+                    <p class="text-xs opacity-60 cartoon-text">روم‌های فعال</p>
                 </div>
             </div>
         </div>
