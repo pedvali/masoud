@@ -189,60 +189,92 @@
     </div>
 
     <!-- Admin Page -->
-    <div id="adminPage" class="fixed inset-0 bg-cartoon z-[2000] hidden flex flex-col px-8 pt-12">
-        <button onclick="showPage('mainPage')" class="text-right mb-8 opacity-50 cartoon-btn"><i class="fas fa-arrow-right ml-2"></i> بازگشت</button>
+    <div id="adminPage" class="fixed inset-0 bg-cartoon z-[2000] hidden flex flex-col px-4 pt-12">
+        <button onclick="showPage('mainPage')" class="text-right mb-6 opacity-50 cartoon-btn"><i class="fas fa-arrow-right ml-2"></i> بازگشت</button>
         
-        <div class="mb-8">
-            <h2 class="text-3xl font-black text-center mb-2 cartoon-text">👑 پنل مدیریت</h2>
+        <div class="mb-6">
+            <h2 class="text-2xl font-black text-center mb-2 cartoon-text">👑 دسترسی‌ها و امکانات مدیر (Admin)</h2>
             <p class="text-center opacity-60 cartoon-text">مدیریت کامل سیستم گیمینو لند</p>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 mb-6">
-            <button onclick="showUserPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all cartoon-card cartoon-btn">
-                <i class="fas fa-users text-3xl text-blue-400 cartoon-icon"></i>
-                <span class="font-bold cartoon-text">پنل کاربری</span>
-                <span class="text-xs opacity-60 cartoon-text">مدیریت کاربران</span>
-            </button>
+        <div class="flex-1 overflow-y-auto space-y-4">
             
-            <button onclick="showLotteryPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all cartoon-card cartoon-btn">
-                <i class="fas fa-gift text-3xl text-purple-400 cartoon-icon"></i>
-                <span class="font-bold cartoon-text">مدیریت قرعه‌کشی</span>
-                <span class="text-xs opacity-60 cartoon-text">ایجاد و مدیریت قرعه‌کشی‌ها</span>
-            </button>
-            
-            <button onclick="showTaskPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all cartoon-card cartoon-btn">
-                <i class="fas fa-tasks text-3xl text-green-400 cartoon-icon"></i>
-                <span class="font-bold cartoon-text">مدیریت تسک‌ها</span>
-                <span class="text-xs opacity-60 cartoon-text">ایجاد و مدیریت ماموریت‌ها</span>
-            </button>
-            
-            <button onclick="showRoomPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all cartoon-card cartoon-btn">
-                <i class="fas fa-dice text-3xl text-cyan-400 cartoon-icon"></i>
-                <span class="font-bold cartoon-text">مدیریت روم‌ها</span>
-                <span class="text-xs opacity-60 cartoon-text">ایجاد و مدیریت کاستوم روم‌ها</span>
-            </button>
-        </div>
-
-        <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2rem] cartoon-card">
-            <h3 class="font-bold text-lg mb-4 cartoon-text">📊 آمار سریع</h3>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="text-center">
-                    <p class="text-2xl font-black text-blue-400 cartoon-text">۱,۲۳۴</p>
-                    <p class="text-xs opacity-60 cartoon-text">کل کاربران</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-2xl font-black text-green-400 cartoon-text">۸۵۶</p>
-                    <p class="text-xs opacity-60 cartoon-text">کاربران فعال</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-2xl font-black text-purple-400 cartoon-text">۴۲</p>
-                    <p class="text-xs opacity-60 cartoon-text">قرعه‌کشی فعال</p>
-                </div>
-                <div class="text-center">
-                    <p class="text-2xl font-black text-orange-400 cartoon-text">۱۵</p>
-                    <p class="text-xs opacity-60 cartoon-text">روم‌های فعال</p>
+            <!-- 1. تسک‌ها و مأموریت‌ها -->
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-4 rounded-[2rem] cartoon-card">
+                <h3 class="font-bold text-lg mb-3 cartoon-text">🔹 1. تسک‌ها و مأموریت‌ها</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="showTaskManager()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-plus mb-1"></i><br>ایجاد تسک
+                    </button>
+                    <button onclick="showTaskList()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-list mb-1"></i><br>لیست تسک‌ها
+                    </button>
+                    <button onclick="showTaskStats()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-chart-bar mb-1"></i><br>آمار تسک‌ها
+                    </button>
+                    <button onclick="showTaskWinners()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-trophy mb-1"></i><br>برندگان تسک
+                    </button>
                 </div>
             </div>
+
+            <!-- 2. سیستم رفرال -->
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-4 rounded-[2rem] cartoon-card">
+                <h3 class="font-bold text-lg mb-3 cartoon-text">🔹 2. سیستم رفرال (محدود زمانی)</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="toggleReferralSystem()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-toggle-on mb-1"></i><br>فعال/غیرفعال
+                    </button>
+                    <button onclick="showReferralSettings()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-cog mb-1"></i><br>تنظیمات رفرال
+                    </button>
+                    <button onclick="showReferralList()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-users mb-1"></i><br>لیست دعوت‌ها
+                    </button>
+                    <button onclick="blockFakeReferrals()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-ban mb-1"></i><br>مسدود تقلب
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3. کاستوم روم کالاف موبایل -->
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-4 rounded-[2rem] cartoon-card">
+                <h3 class="font-bold text-lg mb-3 cartoon-text">� 3. کاستوم روم کالاف موبایل</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="createCustomRoom()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-plus-circle mb-1"></i><br>ایجاد رویداد
+                    </button>
+                    <button onclick="manageCustomRooms()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-door-open mb-1"></i><br>مدیریت روم‌ها
+                    </button>
+                    <button onclick="showRoomParticipants()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-users mb-1"></i><br>شرکت‌کنندگان
+                    </button>
+                    <button onclick="selectRoomWinners()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-crown mb-1"></i><br>انتخاب برندگان
+                    </button>
+                </div>
+            </div>
+
+            <!-- 4. قرعه‌کشی هفتگی و ماهانه -->
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-4 rounded-[2rem] cartoon-card">
+                <h3 class="font-bold text-lg mb-3 cartoon-text">🔹 4. قرعه‌کشی هفتگی و ماهانه</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="createLottery()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-plus mb-1"></i><br>ایجاد قرعه‌کشی
+                    </button>
+                    <button onclick="manageLotteries()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-list mb-1"></i><br>مدیریت قرعه‌کشی‌ها
+                    </button>
+                    <button onclick="showLotteryParticipants()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-users mb-1"></i><br>شرکت‌کنندگان
+                    </button>
+                    <button onclick="selectLotteryWinner()" class="bg-white/10 p-3 rounded-xl text-xs cartoon-btn cartoon-text">
+                        <i class="fas fa-dice mb-1"></i><br>انتخاب برنده
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 
