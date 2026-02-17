@@ -22,31 +22,13 @@
                 <!-- Header Section -->
                 <header class="main-header">
                     <div class="header-content">
-                        <!-- Left Side (RTL: Back + Avatar) -->
-                        <div class="header-left">
-                            <button class="header-icon-btn back-btn">
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                            <button onclick="showPage('profilePage')" class="avatar-btn">
-                                <img src="https://via.placeholder.com/40" alt="User Avatar" class="avatar-img">
-                            </button>
-                        </div>
+                        <!-- Profile Avatar - Top Left (RTL) -->
+                        <button onclick="showPage('profilePage')" class="avatar-btn">
+                            <img src="https://via.placeholder.com/42" alt="User Avatar" class="avatar-img">
+                        </button>
                         
-                        <!-- Center: User Info -->
-                        <div class="header-center">
-                            <h1 class="header-title">Pedram Valizade</h1>
-                            <p class="header-subtitle">last seen recently</p>
-                        </div>
-                        
-                        <!-- Right Side: Contact + Menu -->
-                        <div class="header-right">
-                            <button class="header-icon-btn contact-btn">
-                                <i class="fas fa-phone"></i>
-                            </button>
-                            <button class="header-icon-btn menu-btn">
-                                <i class="fas fa-ellipsis-v"></i>
-                            </button>
-                        </div>
+                        <!-- Center Title -->
+                        <h1 class="header-title">لیدربورد</h1>
                     </div>
                 </header>
 
@@ -57,14 +39,10 @@
                 <main class="main-content">
                     
                     <!-- Leaderboard Card -->
-                    <div class="game-card leaderboard-card" onclick="showPage('leaderboardPage')">
+                    <div class="game-card lottery-card" onclick="showPage('leaderboardPage')">
                         <div class="card-content">
                             <div class="card-text">
                                 <h3 class="card-title">لیدربورد</h3>
-                                <p class="card-subtitle">رتبه‌بندی بازیکنان برتر</p>
-                            </div>
-                            <div class="card-icon">
-                                <i class="fas fa-trophy"></i>
                             </div>
                         </div>
                     </div>
@@ -73,11 +51,7 @@
                     <div class="game-card lottery-card" onclick="enterLottery('weekly')">
                         <div class="card-content">
                             <div class="card-text">
-                                <h3 class="card-title">قرعه کشی هفتگی ماهانه</h3>
-                                <p class="card-subtitle">جایزه‌های بزرگ در انتظار شما</p>
-                            </div>
-                            <div class="card-icon">
-                                <i class="fas fa-gift"></i>
+                                <h3 class="card-title">قرعه کشی هفتگی و ماهانه</h3>
                             </div>
                         </div>
                     </div>
@@ -87,10 +61,6 @@
                         <div class="card-content">
                             <div class="card-text">
                                 <h3 class="card-title">کاستوم روم</h3>
-                                <p class="card-subtitle">اتاق‌های اختصاصی گیمینگ</p>
-                            </div>
-                            <div class="card-icon">
-                                <i class="fas fa-dice-d20"></i>
                             </div>
                         </div>
                     </div>
