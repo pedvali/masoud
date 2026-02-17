@@ -50,7 +50,7 @@ function showPage(pageId) {
 
 // ۴. چک کردن ادمین بودن (آیدی ادمین را اینجا جایگزین کنید)
 function checkAdminStatus(userId) {
-    const ADMIN_IDS = [668489317, 12345678]; // لیست آیدی عددی ادمین‌ها
+    const ADMIN_IDS = [1771570402]; // لیست آیدی عددی ادمین‌ها
     if (ADMIN_IDS.includes(userId)) {
         const adminBtn = document.getElementById('adminBtn');
         if (adminBtn) {
