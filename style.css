@@ -1,215 +1,442 @@
-@font-face {
-    font-family: 'Vazirmatn';
-    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Medium.woff2') format('woff2');
+/* Gaming Modern Dark Mode RTL Layout */
+
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap');
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Vazirmatn', sans-serif;
-    user-select: none;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    background-attachment: fixed;
-}
-
-.bg-cartoon {
-    background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    direction: rtl;
+    text-align: right;
+    background: #0f172a;
+    color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
     position: relative;
 }
 
-.bg-cartoon::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.4), rgba(118, 75, 162, 0.3), rgba(240, 147, 251, 0.3));
-    z-index: 1;
-}
-
-.bg-cartoon > * {
-    position: relative;
-    z-index: 2;
-}
-
-.weekly-gradient {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.monthly-gradient {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
-
-/* استایل‌های کارتونی */
-.cartoon-card {
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        0 4px 16px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.cartoon-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.15),
-        0 6px 20px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.4);
-}
-
-/* استایل‌های دکمه‌های کارتونی */
-.cartoon-btn {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 
-        0 4px 16px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.cartoon-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 
-        0 6px 20px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
-    border-color: rgba(255, 255, 255, 0.5);
-}
-
-.cartoon-btn:active {
-    transform: translateY(0) scale(0.95);
-    box-shadow: 
-        0 2px 8px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-/* استایل‌های آیکون‌های کارتونی */
-.cartoon-icon {
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-    transition: all 0.3s ease;
-}
-
-.cartoon-icon:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-}
-
-/* استایل‌های متن کارتونی */
-.cartoon-text {
-    text-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.3),
-        0 1px 2px rgba(0, 0, 0, 0.2);
-    letter-spacing: 0.5px;
-    font-weight: 800;
-}
-
-.nav-item.active i {
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
-    transform: scale(1.1);
-}
-
-/* افکت‌های شیشه‌ای برای المان‌ها */
-.backdrop-blur-xl {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-}
-
-/* انیمیشن ورود اپلیکیشن */
-@keyframes fadeIn {
-    from { 
-        opacity: 0; 
-        transform: scale(0.9) translateY(20px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: scale(1) translateY(0); 
-    }
-}
-
-#mainApp {
-    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* حذف اسکرول‌بار */
-::-webkit-scrollbar { width: 0; }
-
-.hidden { display: none !important; }
-
-/* افکت‌های کارت‌ها */
-.drawing-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Gaming Background with Complex Layers */
+.gaming-bg {
+    background: linear-gradient(180deg, #0F0F1A 0%, #1A1A2E 100%);
     position: relative;
     overflow: hidden;
 }
 
-.drawing-card::before {
+/* Gaming Pattern Overlay Layer */
+.gaming-bg::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    animation: rotate 10s linear infinite;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        /* Gaming Icons Pattern */
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%232A2A3D' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M15 20c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm0 20c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm30-20c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm0 20c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zM30 15c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm0 30c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z'/%3E%3Cpath d='M20 30c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm20 0c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z'/%3E%3C/g%3E%3C/svg%3E"),
+        /* Subtle Noise Texture */
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.01) 2px,
+            rgba(255, 255, 255, 0.01) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+/* Safe Area - Android Standard */
+.safe-area {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
 }
 
-.drawing-card:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+/* Scaffold */
+.scaffold {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-/* استایل‌های دکمه ادمین */
-#adminBtn {
-    background: linear-gradient(135deg, #fbbf24, #f59e0b);
-    box-shadow: 
-        0 4px 15px rgba(251, 191, 36, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+/* Main Column */
+.main-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 80px; /* Space for bottom nav */
 }
 
-#adminBtn:hover {
-    transform: scale(1.05);
-    box-shadow: 
-        0 6px 20px rgba(251, 191, 36, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+/* Header Section - New Specifications */
+.main-header {
+    height: 90px;
+    background: #121212;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    position: relative;
+    z-index: 10;
 }
 
-/* استایل‌های پنل ادمین */
-.admin-panel-btn {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.admin-panel-btn:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    border-color: rgba(255, 255, 255, 0.3);
+/* Header Left Side */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-/* افکت‌های ویژه برای صفحه خوش آمدگویی */
-.welcome-overlay {
-    background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+.header-icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 18px;
 }
 
-/* استایل‌های شیشه‌ای ویژه */
-.glass-effect {
+.header-icon-btn:hover {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* استایل‌های مودال ادمین */
+.header-icon-btn:active {
+    transform: scale(0.95);
+}
+
+/* Header Center */
+.header-center {
+    flex: 1;
+    text-align: center;
+    margin: 0 16px;
+}
+
+.header-title {
+    font-size: 18px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.header-subtitle {
+    font-size: 12px;
+    color: #9E9E9E;
+    font-weight: 400;
+}
+
+/* Header Right Side */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Avatar Button */
+.avatar-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 2px;
+    overflow: hidden;
+}
+
+.avatar-btn:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Remove old header spacer */
+.header-spacer {
+    display: none;
+}
+
+/* Spacing */
+.spacing-20 {
+    height: 20px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 24px;
+    padding-bottom: 20px;
+}
+
+/* Hide scrollbar */
+.main-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Game Cards - New Specifications */
+.game-card {
+    width: calc(100% - 48px); /* 24px padding on each side */
+    height: 110px;
+    margin: 0 0 20px 0;
+    border-radius: 20px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.game-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.game-card:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Card Content Layout - RTL */
+.card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.card-text {
+    flex: 1;
+    text-align: right;
+    margin-left: 16px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 4px;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Specific Card Gradients - New Specifications */
+.leaderboard-card {
+    background: linear-gradient(90deg, #4E54C8, #8F94FB);
+}
+
+.lottery-card {
+    background: linear-gradient(90deg, #FF512F, #DD2476);
+}
+
+.custom-room-card {
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
+    padding: 0 20px;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 10px);
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+.nav-item i {
+    font-size: 20px;
+}
+
+.nav-item span {
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.nav-item:hover {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-item.active i {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 380px) {
+    .header-title {
+        font-size: 20px;
+    }
+    
+    .game-card {
+        width: 95%;
+        height: 75px;
+        padding: 14px;
+    }
+    
+    .card-title {
+        font-size: 15px;
+    }
+    
+    .card-subtitle {
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .game-card {
+        width: 100%;
+    }
+}
+
+/* Animation for page transitions */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.game-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.game-card:nth-child(1) { animation-delay: 0.1s; }
+.game-card:nth-child(2) { animation-delay: 0.2s; }
+.game-card:nth-child(3) { animation-delay: 0.3s; }
+.game-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Focus states for accessibility */
+.avatar-btn:focus,
+.game-card:focus,
+.nav-item:focus,
+.card-btn:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+/* Loading states */
+.game-card.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.game-card.loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    to {
+        left: 100%;
+    }
+}
+
+/* Modal Styles */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -222,34 +449,32 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999;
+    z-index: 1000;
     padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 .modal-content {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 2rem;
-    box-shadow: 
-        0 20px 50px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     max-width: 90%;
     max-height: 90%;
     overflow-y: auto;
-    animation: modalSlideIn 0.3s ease-out;
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.3s ease;
 }
 
-@keyframes modalSlideIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9) translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+.modal-overlay.show .modal-content {
+    transform: scale(1) translateY(0);
 }
 
 .modal-header {
@@ -257,217 +482,333 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .modal-header h3 {
-    font-size: 1.5rem;
-    font-weight: 800;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .modal-close {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 1.2rem;
-    color: white;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
     transition: all 0.3s ease;
 }
 
 .modal-close:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
     transform: scale(1.1);
 }
 
 .modal-body {
     padding: 20px;
+    color: #ffffff;
 }
 
-/* استایل‌های ورودی‌های ادمین */
-.admin-input {
-    width: 100%;
-    padding: 12px 16px;
+/* Profile Modal Styles */
+.profile-modal {
+    text-align: center;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    padding: 3px;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 1rem;
-    color: white;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    margin-bottom: 12px;
 }
 
-.admin-input::placeholder {
+.profile-avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-info h3 {
+    font-size: 20px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.profile-info p {
+    font-size: 14px;
     color: rgba(255, 255, 255, 0.6);
 }
 
-.admin-input:focus {
-    outline: none;
-    border-color: rgba(255, 255, 255, 0.5);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-value {
+    display: block;
+    font-size: 18px;
+    font-weight: 900;
+    color: #4facfe;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Invite Modal Styles */
+.invite-modal {
+    text-align: center;
+}
+
+.invite-link-container {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.invite-link {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    font-family: inherit;
+}
+
+.copy-btn {
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.invite-info {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 12px;
+}
+
+/* Lottery Modal Styles */
+.lottery-modal {
+    text-align: center;
+}
+
+.lottery-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(240, 147, 251, 0.4);
+}
+
+.lottery-modal h3 {
+    font-size: 22px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.lottery-time {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+}
+
+.lottery-prize {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f093fb;
+    margin-bottom: 24px;
+}
+
+.confirm-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.confirm-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(240, 147, 251, 0.4);
+}
+
+/* Custom Room Modal Styles */
+.custom-room-modal {
+    text-align: center;
+}
+
+.room-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+}
+
+.custom-room-modal h3 {
+    font-size: 22px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.custom-room-modal p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 24px;
+}
+
+.room-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.room-btn {
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.room-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Admin Modal Styles */
+.admin-modal {
+    text-align: center;
+}
+
+.admin-modal h3 {
+    font-size: 20px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 24px;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
 }
 
 .admin-btn {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    padding: 12px 24px;
-    border-radius: 1rem;
-    font-weight: 700;
-    font-size: 0.9rem;
+    padding: 20px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #ffffff;
     cursor: pointer;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 
-        0 4px 16px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-btn i {
+    font-size: 24px;
+    color: #4facfe;
+}
+
+.admin-btn span {
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .admin-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
-    box-shadow: 
-        0 6px 20px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.2);
 }
 
-.admin-btn:active {
-    transform: translateY(0) scale(0.95);
-    box-shadow: 
-        0 2px 8px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-/* استایل‌های خاص برای مودال‌های ادمین */
-.custom-room-box {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 1.5rem;
-    padding: 16px;
-    margin-bottom: 12px;
-    transition: all 0.3s ease;
-}
-
-.custom-room-box:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-1px);
-}
-
-/* استایل‌های فرم‌ها */
-.space-y-4 > * + * {
-    margin-top: 1rem;
-}
-
-.space-y-3 > * + * {
-    margin-top: 0.75rem;
-}
-
-.grid {
-    display: grid;
-}
-
-.grid-cols-2 {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.gap-3 {
-    gap: 0.75rem;
-}
-
-.gap-4 {
-    gap: 1rem;
-}
-
-.gap-2 {
-    gap: 0.5rem;
-}
-
-/* استایل‌های متن در مودال */
-.modal-body h4 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.modal-body p {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    line-height: 1.5;
-}
-
-/* استایل‌های چک‌باکس و سلکت */
-.modal-body input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    margin-left: 8px;
-    cursor: pointer;
-}
-
-.modal-body select {
-    width: 100%;
-    padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 1rem;
-    color: white;
-    font-size: 0.9rem;
-    cursor: pointer;
-    margin-bottom: 12px;
-}
-
-.modal-body select option {
-    background: #333;
-    color: white;
-}
-
-.modal-body textarea {
-    width: 100%;
-    min-height: 100px;
-    padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 1rem;
-    color: white;
-    font-size: 0.9rem;
-    resize: vertical;
-    margin-bottom: 12px;
-}
-
-/* استایل‌های نتایج */
-.text-green-400 {
-    color: #4ade80;
-    font-weight: 700;
-}
-
-.text-blue-400 {
-    color: #60a5fa;
-    font-weight: 700;
-}
-
-.text-purple-400 {
-    color: #c084fc;
-    font-weight: 700;
-}
-
-.text-orange-400 {
-    color: #fb923c;
-    font-weight: 700;
+/* Responsive Modal Styles */
+@media (max-width: 480px) {
+    .modal-content {
+        max-width: 95%;
+        margin: 10px;
+    }
+    
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-stats {
+        grid-template-columns: 1fr;
+    }
 }
