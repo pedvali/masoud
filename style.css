@@ -1,245 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap');
-
-* {
-    font-family: 'Vazirmatn', sans-serif;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Medium.woff2') format('woff2');
 }
 
 body {
-    background-color: #0f172a; /* رنگ پس‌زمینه اصلی تاریک */
-    background-image: 
-        radial-gradient(circle at top left, rgba(79, 70, 229, 0.15), transparent 300px),
-        radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.1), transparent 300px);
-    margin: 0;
-    color: white;
-    min-height: 100vh;
-}
-
-.main-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding-bottom: 100px;
-}
-
-/* استایل کارت‌های قرعه‌کشی دقیقا مثل عکس */
-.drawing-card {
-    border-radius: 20px;
-    padding: 24px;
-    margin-bottom: 16px;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    font-family: 'Vazirmatn', sans-serif;
+    user-select: none;
+    background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
 }
 
 .weekly-gradient {
-    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
 }
 
 .monthly-gradient {
-    background: linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%);
+    background: linear-gradient(135deg, #9333ea 0%, #581c87 100%);
 }
 
-/* بخش کاستوم روم */
-.custom-room-box {
-    background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 24px;
-    padding: 20px;
-    margin-top: 24px;
+.nav-item.active i {
+    filter: drop-shadow(0 0 10px white);
 }
 
-.enter-btn {
-    background: #2563eb;
-    color: white;
-    width: 100%;
-    padding: 14px;
-    border-radius: 14px;
-    font-weight: 900;
-    font-size: 1.1rem;
-    border: none;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
-    transition: 0.2s;
-}
-
-.enter-btn:active { transform: scale(0.97); }
-
-/* هدر و پروفایل */
-.header-ui {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-
-.profile-btn-new {
-    background: rgba(255, 255, 255, 0.1);
-    width: 45px;
-    height: 45px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* منوی پایین */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(15, 23, 42, 0.9);
+/* افکت شیشه‌ای برای المان‌ها */
+.backdrop-blur-xl {
     backdrop-filter: blur(20px);
-    display: flex;
-    justify-content: space-around;
-    padding: 15px 10px 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    z-index: 1000;
+    -webkit-backdrop-filter: blur(20px);
 }
 
-.nav-item {
-    color: #64748b;
-    text-decoration: none;
-    font-size: 11px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
-
-.nav-item.active { color: #3b82f6; }
-.nav-item i { font-size: 22px; }
+/* حذف اسکرول‌بار */
+::-webkit-scrollbar { width: 0; }
 
 .hidden { display: none !important; }
-
-/* استایل‌های صفحه مدیریت */
-.admin-section {
-    background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.admin-btn {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-    color: white;
-    width: 100%;
-    padding: 12px 16px;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    border: none;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-    transition: all 0.2s;
-    text-align: right;
-}
-
-.admin-btn:active {
-    transform: scale(0.97);
-    box-shadow: 0 2px 6px rgba(99, 102, 241, 0.3);
-}
-
-.admin-section h3 {
-    color: #fbbf24;
-    margin-bottom: 12px;
-    font-size: 1.1rem;
-}
-
-.space-y-3 > * + * {
-    margin-top: 12px;
-}
-
-/* استایل‌های مودال */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    padding: 20px;
-}
-
-.modal-content {
-    background: #1e293b;
-    border-radius: 20px;
-    max-width: 400px;
-    width: 100%;
-    max-height: 80vh;
-    overflow-y: auto;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.modal-header h3 {
-    margin: 0;
-    color: #fbbf24;
-    font-size: 1.2rem;
-}
-
-.modal-close {
-    background: none;
-    border: none;
-    color: #64748b;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 0;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-body {
-    padding: 20px;
-}
-
-.admin-input {
-    width: 100%;
-    padding: 12px 16px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(30, 41, 59, 0.5);
-    color: white;
-    font-size: 0.9rem;
-    margin-bottom: 12px;
-}
-
-.admin-input::placeholder {
-    color: #64748b;
-}
-
-.admin-input:focus {
-    outline: none;
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-}
-
-.flex {
-    display: flex;
-}
-
-.gap-2 {
-    gap: 8px;
-}
-
-.space-y-4 > * + * {
-    margin-top: 16px;
-}

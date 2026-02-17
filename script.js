@@ -1,7 +1,48 @@
-let tg = window.Telegram.WebApp;
+const tg = window.Telegram.WebApp;
+tg.expand(); // باز کردن کامل مینی‌اپ در تلگرام
+
 let currentUser = null;
 
-// ۱. آماده‌سازی اپلیکیشن
+// نمایش اطلاعات کاربر در هدر
+if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+    currentUser = tg.initDataUnsafe.user;
+    
+    // آپدیت نام کاربر در پروفایل
+    if (document.getElementById('u_name')) {
+        document.getElementById('u_name').innerText = currentUser.first_name || 'کاربر گیمینو';
+    }
+    
+    // آپدیت آیدی کاربر
+    if (document.getElementById('u_id')) {
+        document.getElementById('u_id').innerText = currentUser.id;
+    }
+    
+    // آپدیت آواتار کاربر
+    if (currentUser.photo_url && document.getElementById('u_avatar')) {
+        document.getElementById('u_avatar').src = currentUser.photo_url;
+    }
+}
+
+// تابع تغییر صفحات برای طراحی جدید
+function showPage(pageId) {
+    if (pageId === 'mainPage') {
+        // مخفی کردن صفحه پروفایل
+        document.getElementById('profilePage').classList.add('hidden');
+    } else if (pageId === 'profilePage') {
+        // نمایش صفحه پروفایل
+        document.getElementById('profilePage').classList.remove('hidden');
+    } else if (pageId === 'leaderboardPage') {
+        // در آینده لیدربورد را اینجا اضافه کنید
+        tg.showAlert('لیدربورد به زودی اضافه می‌شود!');
+    }
+    
+    // بازخورد لمسی
+    if (tg.HapticFeedback) {
+        tg.HapticFeedback.impactOccurred('light');
+    }
+}
+
+// آماده‌سازی اپلیکیشن
 function initApp() {
     tg.ready();
     tg.expand();
