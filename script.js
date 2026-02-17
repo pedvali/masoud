@@ -3,10 +3,22 @@ tg.expand(); // باز کردن کامل مینی‌اپ در تلگرام
 
 let currentUser = null;
 let appStarted = false;
+let isAdmin = false;
+
+// لیست آیدی عددی ادمین‌ها
+const ADMIN_IDS = [1771570402]; // می‌توانید آیدی‌های ادمین را اینجا اضافه کنید
 
 // نمایش اطلاعات کاربر در خوش آمدگویی
 if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
     currentUser = tg.initDataUnsafe.user;
+    
+    // چک کردن ادمین بودن کاربر
+    isAdmin = ADMIN_IDS.includes(currentUser.id);
+    
+    // نمایش دکمه ادمین اگر کاربر ادمین باشد
+    if (isAdmin && document.getElementById('adminBtn')) {
+        document.getElementById('adminBtn').classList.remove('hidden');
+    }
     
     // نمایش نام کاربر در صفحه خوش آمدگویی
     if (document.getElementById('welcomeUserName')) {
@@ -57,6 +69,7 @@ function showPage(pageId) {
     
     // مخفی کردن تمام صفحات
     document.getElementById('profilePage').classList.add('hidden');
+    document.getElementById('adminPage').classList.add('hidden');
     
     if (pageId === 'mainPage') {
         // صفحه اصلی از قبل نمایش داده شده
@@ -65,6 +78,15 @@ function showPage(pageId) {
         // نمایش صفحه پروفایل
         document.getElementById('profilePage').classList.remove('hidden');
         updateNavigation('profilePage');
+    } else if (pageId === 'adminPage') {
+        // چک کردن مجدد ادمین بودن
+        if (!isAdmin) {
+            tg.showAlert('شما دسترسی به این بخش را ندارید!');
+            return;
+        }
+        // نمایش صفحه ادمین
+        document.getElementById('adminPage').classList.remove('hidden');
+        updateNavigation('adminPage');
     } else if (pageId === 'leaderboardPage') {
         tg.showAlert('لیدربورد به زودی اضافه می‌شود!');
     } else if (pageId === 'tasksPage') {
@@ -132,6 +154,23 @@ function showInviteDialog() {
     } else {
         tg.showAlert(`لینک دعوت شما:\n${inviteLink}`);
     }
+}
+
+// توابع پنل ادمین
+function showUserPanel() {
+    tg.showAlert('پنل مدیریت کاربران به زودی اضافه می‌شود!');
+}
+
+function showLotteryPanel() {
+    tg.showAlert('پنل مدیریت قرعه‌کشی به زودی اضافه می‌شود!');
+}
+
+function showTaskPanel() {
+    tg.showAlert('پنل مدیریت تسک‌ها به زودی اضافه می‌شود!');
+}
+
+function showRoomPanel() {
+    tg.showAlert('پنل مدیریت روم‌ها به زودی اضافه می‌شود!');
 }
 
 // بارگذاری اطلاعات کاربر از سرور

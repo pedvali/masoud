@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#0f172a] text-white font-sans overflow-hidden">
+<body class="bg-landscape text-white font-sans overflow-hidden">
 
     <!-- Welcome Screen Overlay -->
     <div id="welcomeScreen" class="fixed inset-0 z-[3000] flex items-center justify-center p-6">
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop');">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop');">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60"></div>
         </div>
         
@@ -25,7 +25,7 @@
                         <p class="text-lg opacity-80"><span id="welcomeUserName">کاربر گرامی</span> عزیز</p>
                     </div>
                 </div>
-                <button onclick="startApp()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 rounded-2xl font-black text-lg active:scale-95 transition-all shadow-lg">
+                <button onclick="startApp()" class="w-full bg-gradient-to-r from-green-500 to-blue-600 text-white py-4 rounded-2xl font-black text-lg active:scale-95 transition-all shadow-lg">
                     شروع گردونه
                 </button>
             </div>
@@ -50,6 +50,11 @@
                 <span id="userBalance" class="text-sm font-bold">۰</span>
                 <i class="fas fa-gem text-purple-400 text-xs"></i>
             </div>
+
+            <!-- Admin Button (Hidden by default) -->
+            <button id="adminBtn" onclick="showPage('adminPage')" class="hidden w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-500 backdrop-blur-md rounded-full flex items-center justify-center border border-yellow-300/30 active:scale-90 transition-all shadow-lg">
+                <i class="fas fa-crown text-lg text-white"></i>
+            </button>
         </header>
 
         <div class="px-6 mb-4">
@@ -160,7 +165,7 @@
     </div>
 
     <!-- Profile Page -->
-    <div id="profilePage" class="fixed inset-0 bg-[#0f172a] z-[2000] hidden flex flex-col px-8 pt-12">
+    <div id="profilePage" class="fixed inset-0 bg-landscape z-[2000] hidden flex flex-col px-8 pt-12">
         <button onclick="showPage('mainPage')" class="text-right mb-8 opacity-50"><i class="fas fa-arrow-right ml-2"></i> بازگشت</button>
         <div class="flex flex-col items-center mb-10">
             <div class="w-24 h-24 rounded-full border-4 border-cyan-500/30 p-1 mb-4">
@@ -177,6 +182,64 @@
             <div class="bg-white/5 p-5 rounded-[2rem] border border-white/10 flex justify-between">
                 <span class="opacity-60 text-sm">جوایز برنده شده</span>
                 <span id="u_prizes" class="font-bold text-green-400">۰</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Page -->
+    <div id="adminPage" class="fixed inset-0 bg-landscape z-[2000] hidden flex flex-col px-8 pt-12">
+        <button onclick="showPage('mainPage')" class="text-right mb-8 opacity-50"><i class="fas fa-arrow-right ml-2"></i> بازگشت</button>
+        
+        <div class="mb-8">
+            <h2 class="text-3xl font-black text-center mb-2">👑 پنل مدیریت</h2>
+            <p class="text-center opacity-60">مدیریت کامل سیستم گیمینو لند</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mb-6">
+            <button onclick="showUserPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all">
+                <i class="fas fa-users text-3xl text-blue-400"></i>
+                <span class="font-bold">پنل کاربری</span>
+                <span class="text-xs opacity-60">مدیریت کاربران</span>
+            </button>
+            
+            <button onclick="showLotteryPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all">
+                <i class="fas fa-gift text-3xl text-purple-400"></i>
+                <span class="font-bold">مدیریت قرعه‌کشی</span>
+                <span class="text-xs opacity-60">ایجاد و مدیریت قرعه‌کشی‌ها</span>
+            </button>
+            
+            <button onclick="showTaskPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all">
+                <i class="fas fa-tasks text-3xl text-green-400"></i>
+                <span class="font-bold">مدیریت تسک‌ها</span>
+                <span class="text-xs opacity-60">ایجاد و مدیریت ماموریت‌ها</span>
+            </button>
+            
+            <button onclick="showRoomPanel()" class="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-[2rem] flex flex-col items-center gap-3 active:scale-95 transition-all">
+                <i class="fas fa-dice text-3xl text-cyan-400"></i>
+                <span class="font-bold">مدیریت روم‌ها</span>
+                <span class="text-xs opacity-60">ایجاد و مدیریت کاستوم روم‌ها</span>
+            </button>
+        </div>
+
+        <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2rem]">
+            <h3 class="font-bold text-lg mb-4">آمار سریع</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="text-center">
+                    <p class="text-2xl font-black text-blue-400">۱,۲۳۴</p>
+                    <p class="text-xs opacity-60">کل کاربران</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-2xl font-black text-green-400">۸۵۶</p>
+                    <p class="text-xs opacity-60">کاربران فعال</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-2xl font-black text-purple-400">۴۲</p>
+                    <p class="text-xs opacity-60">قرعه‌کشی فعال</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-2xl font-black text-orange-400">۱۵</p>
+                    <p class="text-xs opacity-60">روم‌های فعال</p>
+                </div>
             </div>
         </div>
     </div>
