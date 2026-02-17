@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>گیمینو لند</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6.0">
+</head>
+<body>
+    <div class="main-container">
+        <div class="header-ui">
+            <button class="profile-btn-new" onclick="showPage('profilePage')">
+                <i class="fas fa-user text-white text-xl"></i>
+            </button>
+            <div class="font-black text-xl">گیمینو لند</div>
+            <button id="adminBtn" class="profile-btn-new hidden" onclick="showPage('adminPage')" style="background: linear-gradient(135deg, #fbbf24, #f59e0b);">
+                <i class="fas fa-crown text-white text-xl"></i>
+            </button>
+        </div>
+
+        <div id="mainPage" class="page-content px-5">
+            <div class="flex justify-between items-center my-6">
+                <h2 class="font-bold text-lg">رتبه‌بندی</h2>
+                <button onclick="showPage('leaderboard')" style="color: #fbbf24; font-weight: bold; background: none; border: none;">لیدربورد</button>
+            </div>
+
+            <div class="drawing-card weekly-gradient">
+                <h3 class="font-black text-xl">قرعه‌کشی هفتگی</h3>
+                <p class="text-sm opacity-80 mt-1">جوایز ویژه کاربران فعال</p>
+            </div>
+
+            <div class="drawing-card monthly-gradient">
+                <h3 class="font-black text-xl">قرعه‌کشی ماهانه</h3>
+                <p class="text-sm opacity-80 mt-1">جایزه بزرگ گیمینو لند</p>
+            </div>
+
+            <div class="custom-room-box">
+                <h3 class="font-bold mb-4 text-center">کاستوم روم</h3>
+                <button class="enter-btn">ورود</button>
+            </div>
+        </div>
+
+        <div id="profilePage" class="page-content hidden px-5 pt-10">
+            <div style="background: white; border-radius: 30px; padding: 30px; color: #1e293b; text-align: center;">
+                <i class="fas fa-user-circle text-6xl text-blue-600 mb-4"></i>
+                <h2 id="u_name" class="font-black text-xl mb-6">کاربر گیمینو</h2>
+                
+                <div style="text-align: right; border-top: 1px solid #e2e8f0; padding-top: 20px;" class="space-y-4">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>تسک‌های انجام شده:</span> <span id="u_tasks" class="font-bold">۰</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>جوایز برنده شده:</span> <span id="u_prizes" class="font-bold text-green-600">۰</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>آیدی عددی:</span> <span id="u_id" class="text-xs text-gray-400">---</span>
+                    </div>
+                </div>
+                
+                <button onclick="showPage('mainPage')" style="margin-top: 30px; width: 100%; padding: 12px; background: #f1f5f9; border-radius: 12px; font-weight: bold; border: none;">بازگشت</button>
+            </div>
+        </div>
+
+        <div id="tasksPage" class="page-content hidden px-5">
+            <h2 class="font-black text-2xl my-6 text-center">تسک‌های روزانه</h2>
+            <div class="space-y-4">
+                <div class="custom-room-box flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold">عضویت در کانال</h4>
+                        <p class="text-xs opacity-60">+۵۰۰ امتیاز</p>
+                    </div>
+                    <button class="enter-btn" style="width: auto; padding: 8px 20px;">انجام</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="invitePage" class="page-content hidden px-5 text-center">
+            <div class="drawing-card weekly-gradient mt-10">
+                <i class="fas fa-users text-4xl mb-4"></i>
+                <h3 class="font-black text-xl">دعوت از دوستان</h3>
+                <p class="text-sm opacity-90">با دعوت هر دوست، ۱۰۰۰ امتیاز بگیرید</p>
+            </div>
+            <div class="custom-room-box mt-5">
+                <p class="mb-4 opacity-70">لینک اختصاصی شما:</p>
+                <code id="referralLink" class="block bg-black/30 p-3 rounded-lg mb-4 text-xs">https://t.me/your_bot?start=ref_id</code>
+                <button class="enter-btn" onclick="copyLink()">کپی لینک دعوت</button>
+            </div>
+        </div>
+
+        <div id="leaderboard" class="page-content hidden px-5">
+            <h2 class="font-black text-2xl my-6 text-center">برترین‌ها</h2>
+            <div id="leaderboardList" class="space-y-2">
+            </div>
+        </div>
+
+        <div id="adminPage" class="page-content hidden px-5">
+            <h2 class="font-black text-2xl my-6 text-center">👑 مدیریت</h2>
+            
+            <!-- Task Management -->
+            <div class="admin-section">
+                <h3 class="font-bold text-lg mb-4">📋 مدیریت تسک‌ها</h3>
+                <div class="space-y-3">
+                    <button class="admin-btn" onclick="showTaskManager()">ایجاد/ویرایش تسک</button>
+                    <button class="admin-btn" onclick="showTaskStats()">آمار تسک‌ها</button>
+                    <button class="admin-btn" onclick="showTaskWinners()">برندگان تسک</button>
+                </div>
+            </div>
+
+            <!-- Referral Management -->
+            <div class="admin-section">
+                <h3 class="font-bold text-lg mb-4">👥 سیستم رفرال</h3>
+                <div class="space-y-3">
+                    <button class="admin-btn" onclick="toggleReferralSystem()">فعال/غیرفعال کردن رفرال</button>
+                    <button class="admin-btn" onclick="showReferralSettings()">تنظیمات رفرال</button>
+                    <button class="admin-btn" onclick="showReferralList()">لیست دعوت‌کنندگان</button>
+                </div>
+            </div>
+
+            <!-- Custom Room Management -->
+            <div class="admin-section">
+                <h3 class="font-bold text-lg mb-4">🎮 کاستوم روم</h3>
+                <div class="space-y-3">
+                    <button class="admin-btn" onclick="createCustomRoom()">ایجاد رویداد جدید</button>
+                    <button class="admin-btn" onclick="manageCustomRooms()">مدیریت روم‌ها</button>
+                    <button class="admin-btn" onclick="showRoomParticipants()">شرکت‌کنندگان</button>
+                </div>
+            </div>
+
+            <!-- Lottery Management -->
+            <div class="admin-section">
+                <h3 class="font-bold text-lg mb-4">🎁 قرعه‌کشی</h3>
+                <div class="space-y-3">
+                    <button class="admin-btn" onclick="createLottery()">ایجاد قرعه‌کشی</button>
+                    <button class="admin-btn" onclick="manageLotteries()">مدیریت قرعه‌کشی‌ها</button>
+                    <button class="admin-btn" onclick="selectLotteryWinner()">انتخاب برنده</button>
+                </div>
+            </div>
+
+            <button onclick="showPage('mainPage')" class="mt-6 w-full bg-red-500 text-white py-3 rounded-xl font-bold">بازگشت</button>
+        </div>
+
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item" onclick="showPage('profilePage')"><i class="fas fa-wallet"></i><span>برداشت</span></a>
+            <a href="#" class="nav-item" onclick="showPage('tasksPage')"><i class="fas fa-tasks"></i><span>تسک‌ها</span></a>
+            <a href="#" class="nav-item active" onclick="showPage('mainPage')"><i class="fas fa-gamepad"></i><span>گیمینو لند</span></a>
+            <a href="#" class="nav-item" onclick="showPage('invitePage')"><i class="fas fa-share"></i><span>دعوت</span></a>
+        </nav>
+    </div>
+
+    <script src="script.js?v=6.0"></script>
+</body>
+</html>
