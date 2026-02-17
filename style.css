@@ -6,7 +6,8 @@
 body {
     font-family: 'Vazirmatn', sans-serif;
     user-select: none;
-    background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
 }
 
 .weekly-gradient {
@@ -27,7 +28,37 @@ body {
     -webkit-backdrop-filter: blur(20px);
 }
 
+/* انیمیشن ورود اپلیکیشن */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#mainApp {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* افکت‌های دکمه‌ها */
+.active:active {
+    transform: scale(0.95);
+}
+
 /* حذف اسکرول‌بار */
 ::-webkit-scrollbar { width: 0; }
 
 .hidden { display: none !important; }
+
+/* افکت‌های کارت‌ها */
+.drawing-card {
+    transition: all 0.3s ease;
+}
+
+.drawing-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+}
+
+/* استایل‌های صفحه خوش آمدگویی */
+.welcome-overlay {
+    background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+}

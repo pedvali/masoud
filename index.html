@@ -10,7 +10,30 @@
 </head>
 <body class="bg-[#0f172a] text-white font-sans overflow-hidden">
 
-    <div class="main-container h-screen flex flex-col pb-24">
+    <!-- Welcome Screen Overlay -->
+    <div id="welcomeScreen" class="fixed inset-0 z-[3000] flex items-center justify-center p-6">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop');">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60"></div>
+        </div>
+        
+        <div class="relative z-10 w-full max-w-sm">
+            <div class="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-8 shadow-2xl">
+                <div class="flex items-center gap-4 mb-6">
+                    <img src="https://via.placeholder.com/80" alt="Wheel" class="w-20 h-20 rounded-2xl object-cover">
+                    <div>
+                        <h2 class="text-2xl font-black">خوش آمدی</h2>
+                        <p class="text-lg opacity-80"><span id="welcomeUserName">کاربر گرامی</span> عزیز</p>
+                    </div>
+                </div>
+                <button onclick="startApp()" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 rounded-2xl font-black text-lg active:scale-95 transition-all shadow-lg">
+                    شروع گردونه
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="mainApp" class="hidden h-screen flex flex-col pb-24">
         
         <header class="px-6 py-6 flex items-center justify-between relative">
             <button onclick="showPage('profilePage')" class="w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 active:scale-90 transition-all">
@@ -38,6 +61,38 @@
 
         <div id="mainPage" class="flex-1 overflow-y-auto px-6 space-y-6">
             
+            <!-- Mission Box -->
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2.5rem] flex justify-between items-center shadow-xl">
+                <div>
+                    <h4 class="font-bold text-lg mb-1">انجام ماموریت ها</h4>
+                    <p class="text-xs opacity-60">امتیاز کسب کن و جایزه ببر</p>
+                </div>
+                <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                    <i class="fas fa-user-astronaut text-2xl text-white"></i>
+                </div>
+            </div>
+
+            <!-- Invite Friends Box -->
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2.5rem] shadow-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <h4 class="font-bold text-lg">دعوت دوستان</h4>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-gem text-purple-400"></i>
+                        <i class="fas fa-gem text-purple-400"></i>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <div class="flex-1 bg-white/5 p-4 rounded-2xl border border-white/10">
+                        <p class="text-xs opacity-60 mb-1">رتبه فعلی</p>
+                        <p id="userRank" class="text-xl font-black text-cyan-400">۱۲۴</p>
+                    </div>
+                    <div class="flex-1 bg-white/5 p-4 rounded-2xl border border-white/10">
+                        <p class="text-xs opacity-60 mb-1">دعوت های موفق</p>
+                        <p id="inviteCount" class="text-xl font-black text-green-400">۸</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="drawing-card weekly-gradient rounded-[2.5rem] p-7 relative overflow-hidden shadow-[0_20px_50px_rgba(30,64,175,0.3)]">
                 <div class="relative z-10">
                     <div class="flex items-center gap-2 mb-2">
@@ -46,7 +101,7 @@
                     </div>
                     <h3 class="text-2xl font-black mb-1">قرعه‌کشی هفتگی</h3>
                     <p class="text-xs opacity-60">جایزه ویژه: ۱۰۰ میلیون تومان</p>
-                    <button class="mt-6 bg-white text-blue-900 px-8 py-2.5 rounded-2xl font-black text-sm active:scale-95 transition-all">ورود</button>
+                    <button onclick="enterLottery('weekly')" class="mt-6 bg-white text-blue-900 px-8 py-2.5 rounded-2xl font-black text-sm active:scale-95 transition-all">ورود</button>
                 </div>
                 <i class="fas fa-trophy absolute -bottom-4 -left-4 text-9xl opacity-10 -rotate-12"></i>
             </div>
@@ -59,7 +114,7 @@
                     </div>
                     <h3 class="text-2xl font-black mb-1">قرعه‌کشی ماهانه</h3>
                     <p class="text-xs opacity-60">بزرگترین جایزه فصل</p>
-                    <button class="mt-6 bg-white text-purple-900 px-8 py-2.5 rounded-2xl font-black text-sm active:scale-95 transition-all">ورود</button>
+                    <button onclick="enterLottery('monthly')" class="mt-6 bg-white text-purple-900 px-8 py-2.5 rounded-2xl font-black text-sm active:scale-95 transition-all">ورود</button>
                 </div>
                 <i class="fas fa-crown absolute -bottom-4 -left-4 text-9xl opacity-10 -rotate-12"></i>
             </div>
@@ -73,36 +128,38 @@
                         <h4 class="font-bold text-sm">کاستوم روم</h4>
                     </div>
                 </div>
-                <button class="bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-5 py-2 rounded-xl text-xs font-bold active:scale-95 transition-all">ورود</button>
+                <button onclick="enterCustomRoom()" class="bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 px-5 py-2 rounded-xl text-xs font-bold active:scale-95 transition-all">ورود</button>
             </div>
 
         </div>
 
+        <!-- Navigation - Right to Left Order -->
         <nav class="fixed bottom-6 left-6 right-6 h-20 bg-black/40 backdrop-blur-2xl rounded-[2.5rem] border border-white/10 flex items-center justify-around px-2">
-            <a href="#" class="nav-item opacity-40 flex flex-col items-center gap-1">
-                <i class="fas fa-cog text-lg"></i>
-                <span class="text-[10px]">تنظیمات</span>
+            <a href="#" onclick="showPage('winnersPage')" class="nav-item opacity-40 flex flex-col items-center gap-1">
+                <i class="fas fa-trophy text-lg"></i>
+                <span class="text-[10px]">برندگان</span>
             </a>
-            <a href="#" class="nav-item opacity-40 flex flex-col items-center gap-1">
-                <i class="fas fa-user-friends text-lg"></i>
-                <span class="text-[10px]">دعوت</span>
+            <a href="#" onclick="showPage('tasksPage')" class="nav-item opacity-40 flex flex-col items-center gap-1">
+                <i class="fas fa-tasks text-lg"></i>
+                <span class="text-[10px]">تسک‌ها</span>
             </a>
-            <a href="#" class="nav-item active flex flex-col items-center gap-1">
+            <a href="#" onclick="showPage('mainPage')" class="nav-item active flex flex-col items-center gap-1">
                 <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-1 border border-white/20">
                     <i class="fas fa-home text-xl text-white"></i>
                 </div>
             </a>
-            <a href="#" class="nav-item opacity-40 flex flex-col items-center gap-1">
-                <i class="fas fa-tasks text-lg"></i>
-                <span class="text-[10px]">تسک‌ها</span>
+            <a href="#" onclick="showPage('invitePage')" class="nav-item opacity-40 flex flex-col items-center gap-1">
+                <i class="fas fa-user-friends text-lg"></i>
+                <span class="text-[10px]">دعوت</span>
             </a>
-            <a href="#" class="nav-item opacity-40 flex flex-col items-center gap-1">
-                <i class="fas fa-trophy text-lg"></i>
-                <span class="text-[10px]">برندگان</span>
+            <a href="#" onclick="showPage('settingsPage')" class="nav-item opacity-40 flex flex-col items-center gap-1">
+                <i class="fas fa-cog text-lg"></i>
+                <span class="text-[10px]">تنظیمات</span>
             </a>
         </nav>
     </div>
 
+    <!-- Profile Page -->
     <div id="profilePage" class="fixed inset-0 bg-[#0f172a] z-[2000] hidden flex flex-col px-8 pt-12">
         <button onclick="showPage('mainPage')" class="text-right mb-8 opacity-50"><i class="fas fa-arrow-right ml-2"></i> بازگشت</button>
         <div class="flex flex-col items-center mb-10">
