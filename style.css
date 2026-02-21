@@ -1401,3 +1401,314 @@ input:checked + .slider:before {
 .reset-settings-btn:hover {
     background: rgba(255, 255, 255, 0.2);
 }
+
+/* Admin Modal Content Styles */
+.admin-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.admin-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 16px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+.admin-header h3 {
+    font-size: 22px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.admin-subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+}
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-number {
+    display: block;
+    font-size: 20px;
+    font-weight: 900;
+    color: #4facfe;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.admin-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.admin-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-action-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.admin-action-btn.primary {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+}
+
+.admin-action-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+}
+
+/* Task Management Styles */
+.recent-tasks h4,
+.active-rooms h4,
+.active-lotteries h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    text-align: right;
+}
+
+.task-list,
+.room-list,
+.lottery-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-item-admin,
+.room-item-admin,
+.lottery-item-admin {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.task-item-admin:hover,
+.room-item-admin:hover,
+.lottery-item-admin:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.task-info-admin,
+.room-info-admin,
+.lottery-info-admin {
+    flex: 1;
+    text-align: right;
+}
+
+.task-info-admin h5,
+.room-info-admin h5,
+.lottery-info-admin h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.task-info-admin p,
+.room-info-admin p,
+.lottery-info-admin p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+}
+
+.task-status {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.task-status.active {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.task-status.inactive {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+/* Referral Settings Styles */
+.referral-settings {
+    margin-bottom: 24px;
+}
+
+.referral-settings h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    text-align: right;
+}
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.setting-row:last-child {
+    border-bottom: none;
+}
+
+.setting-row label {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.setting-input {
+    width: 80px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+}
+
+.setting-select {
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.setting-select option {
+    background: #1e293b;
+    color: #ffffff;
+}
+
+/* Room and Lottery Actions */
+.room-actions,
+.lottery-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.room-action-btn,
+.lottery-action-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.room-action-btn.edit,
+.lottery-action-btn.edit {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+}
+
+.room-action-btn.edit:hover,
+.lottery-action-btn.edit:hover {
+    background: rgba(255, 193, 7, 0.3);
+}
+
+.room-action-btn.close {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+}
+
+.room-action-btn.close:hover {
+    background: rgba(244, 67, 54, 0.3);
+}
+
+.lottery-action-btn.draw {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: #ffffff;
+}
+
+.lottery-action-btn.draw:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+/* Responsive Admin Styles */
+@media (max-width: 480px) {
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-actions {
+        grid-template-columns: 1fr;
+    }
+    
+    .task-item-admin,
+    .room-item-admin,
+    .lottery-item-admin {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .room-actions,
+    .lottery-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}

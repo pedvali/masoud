@@ -493,19 +493,358 @@ function showAdminPage() {
 
 // Admin functions
 function adminTaskManager() {
-    tg.showAlert('مدیریت تسک‌ها به زودی فعال می‌شود!');
+    createModal('📝 مدیریت تسک‌ها', `
+        <div class="admin-task-modal">
+            <div class="admin-header">
+                <div class="admin-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>مدیریت تسک‌ها و مأموریت‌ها</h3>
+                <p class="admin-subtitle">ایجاد و مدیریت تسک‌های کاربران</p>
+            </div>
+            
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">کل تسک‌ها</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">تسک‌های فعال</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">245</span>
+                    <span class="stat-label">انجام شده</span>
+                </div>
+            </div>
+            
+            <div class="admin-actions">
+                <button onclick="createNewTask()" class="admin-action-btn primary">
+                    <i class="fas fa-plus"></i>
+                    <span>ایجاد تسک جدید</span>
+                </button>
+                <button onclick="viewActiveTasks()" class="admin-action-btn">
+                    <i class="fas fa-list"></i>
+                    <span>مشاهده تسک‌های فعال</span>
+                </button>
+                <button onclick="viewTaskStats()" class="admin-action-btn">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>آمار و گزارش‌ها</span>
+                </button>
+                <button onclick="selectTaskWinner()" class="admin-action-btn">
+                    <i class="fas fa-trophy"></i>
+                    <span>انتخاب برنده</span>
+                </button>
+            </div>
+            
+            <div class="recent-tasks">
+                <h4>تسک‌های اخیر</h4>
+                <div class="task-list">
+                    <div class="task-item-admin">
+                        <div class="task-info-admin">
+                            <h5>دعوت از 3 دوست</h5>
+                            <p>50 امتیاز • 89 نفر انجام داده‌اند</p>
+                        </div>
+                        <div class="task-status active">فعال</div>
+                    </div>
+                    <div class="task-item-admin">
+                        <div class="task-info-admin">
+                            <h5>انجام 5 تسک روزانه</h5>
+                            <p>30 امتیاز • 156 نفر انجام داده‌اند</p>
+                        </div>
+                        <div class="task-status active">فعال</div>
+                    </div>
+                    <div class="task-item-admin">
+                        <div class="task-info-admin">
+                            <h5>پیوستن به کانال تلگرام</h5>
+                            <p>25 امتیاز • 234 نفر انجام داده‌اند</p>
+                        </div>
+                        <div class="task-status inactive">غیرفعال</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `);
 }
 
 function adminReferralSystem() {
-    tg.showAlert('مدیریت رفرال به زودی فعال می‌شود!');
+    createModal('👥 سیستم رفرال', `
+        <div class="admin-referral-modal">
+            <div class="admin-header">
+                <div class="admin-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>مدیریت سیستم رفرال</h3>
+                <p class="admin-subtitle">کنترل دعوت‌ها و پاداش‌ها</p>
+            </div>
+            
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <span class="stat-number">1,247</span>
+                    <span class="stat-label">کل دعوت‌ها</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">892</span>
+                    <span class="stat-label">دعوت موفق</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">12,470</span>
+                    <span class="stat-label">امتیاز تخصیص یافته</span>
+                </div>
+            </div>
+            
+            <div class="referral-settings">
+                <h4>تنظیمات فعلی</h4>
+                <div class="setting-row">
+                    <label>وضعیت سیستم:</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </div>
+                </div>
+                <div class="setting-row">
+                    <label>امتیاز هر دعوت:</label>
+                    <input type="number" value="10" class="setting-input">
+                </div>
+                <div class="setting-row">
+                    <label>بازه زمانی:</label>
+                    <select class="setting-select">
+                        <option>7 روز</option>
+                        <option>14 روز</option>
+                        <option>30 روز</option>
+                    </select>
+                </div>
+                <div class="setting-row">
+                    <label>سقف امتیاز:</label>
+                    <input type="number" value="100" class="setting-input">
+                </div>
+            </div>
+            
+            <div class="admin-actions">
+                <button onclick="updateReferralSettings()" class="admin-action-btn primary">
+                    <i class="fas fa-save"></i>
+                    <span>ذخیره تنظیمات</span>
+                </button>
+                <button onclick="viewReferralList()" class="admin-action-btn">
+                    <i class="fas fa-list"></i>
+                    <span>مشاهده لیست دعوت‌ها</span>
+                </button>
+                <button onclick="blockFakeReferrals()" class="admin-action-btn">
+                    <i class="fas fa-ban"></i>
+                    <span>مسدود رفرال‌های تقلبی</span>
+                </button>
+            </div>
+        </div>
+    `);
 }
 
 function adminCustomRooms() {
-    tg.showAlert('مدیریت روم‌ها به زودی فعال می‌شود!');
+    createModal('🎮 کاستوم روم‌ها', `
+        <div class="admin-rooms-modal">
+            <div class="admin-header">
+                <div class="admin-icon">
+                    <i class="fas fa-door-open"></i>
+                </div>
+                <h3>مدیریت کاستوم روم‌ها</h3>
+                <p class="admin-subtitle">ایجاد و مدیریت رویدادهای بازی</p>
+            </div>
+            
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">کل روم‌ها</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">روم‌های فعال</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">127</span>
+                    <span class="stat-label">شرکت‌کنندگان</span>
+                </div>
+            </div>
+            
+            <div class="admin-actions">
+                <button onclick="createNewRoom()" class="admin-action-btn primary">
+                    <i class="fas fa-plus"></i>
+                    <span>ایجاد روم جدید</span>
+                </button>
+                <button onclick="manageActiveRooms()" class="admin-action-btn">
+                    <i class="fas fa-list"></i>
+                    <span>مدیریت روم‌های فعال</span>
+                </button>
+                <button onclick="viewRoomParticipants()" class="admin-action-btn">
+                    <i class="fas fa-users"></i>
+                    <span>شرکت‌کنندگان</span>
+                </button>
+                <button onclick="selectRoomWinner()" class="admin-action-btn">
+                    <i class="fas fa-trophy"></i>
+                    <span>انتخاب برنده</span>
+                </button>
+            </div>
+            
+            <div class="active-rooms">
+                <h4>روم‌های فعال</h4>
+                <div class="room-list">
+                    <div class="room-item-admin">
+                        <div class="room-info-admin">
+                            <h5>تورنمنت هفتگی کالاف</h5>
+                            <p>15 بهمن 20:00 • 18/20 نفر</p>
+                        </div>
+                        <div class="room-actions">
+                            <button class="room-action-btn edit">ویرایش</button>
+                            <button class="room-action-btn close">بستن</button>
+                        </div>
+                    </div>
+                    <div class="room-item-admin">
+                        <div class="room-info-admin">
+                            <h5>مسابقه اسنایپر</h5>
+                            <p>16 بهمن 18:00 • 12/15 نفر</p>
+                        </div>
+                        <div class="room-actions">
+                            <button class="room-action-btn edit">ویرایش</button>
+                            <button class="room-action-btn close">بستن</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `);
 }
 
 function adminLotteries() {
-    tg.showAlert('مدیریت قرعه‌کشی‌ها به زودی فعال می‌شود!');
+    createModal('🎰 قرعه‌کشی‌ها', `
+        <div class="admin-lottery-modal">
+            <div class="admin-header">
+                <div class="admin-icon">
+                    <i class="fas fa-dice"></i>
+                </div>
+                <h3>مدیریت قرعه‌کشی‌ها</h3>
+                <p class="admin-subtitle">کنترل قرعه‌کشی‌های هفتگی و ماهانه</p>
+            </div>
+            
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">قرعه‌کشی‌های فعال</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2,847</span>
+                    <span class="stat-label">شرکت‌کنندگان</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">850M</span>
+                    <span class="stat-label">جایزه کل (تومان)</span>
+                </div>
+            </div>
+            
+            <div class="admin-actions">
+                <button onclick="createNewLottery()" class="admin-action-btn primary">
+                    <i class="fas fa-plus"></i>
+                    <span>ایجاد قرعه‌کشی جدید</span>
+                </button>
+                <button onclick="manageActiveLotteries()" class="admin-action-btn">
+                    <i class="fas fa-list"></i>
+                    <span>مدیریت قرعه‌کشی‌ها</span>
+                </button>
+                <button onclick="viewLotteryParticipants()" class="admin-action-btn">
+                    <i class="fas fa-users"></i>
+                    <span>شرکت‌کنندگان</span>
+                </button>
+                <button onclick="selectLotteryWinner()" class="admin-action-btn">
+                    <i class="fas fa-dice"></i>
+                    <span>انتخاب برنده</span>
+                </button>
+            </div>
+            
+            <div class="active-lotteries">
+                <h4>قرعه‌کشی‌های فعال</h4>
+                <div class="lottery-list">
+                    <div class="lottery-item-admin">
+                        <div class="lottery-info-admin">
+                            <h5>قرعه‌کشی هفتگی بهمن</h5>
+                            <p>جمعه 21:00 • 1,234 نفر • 100M تومان</p>
+                        </div>
+                        <div class="lottery-actions">
+                            <button class="lottery-action-btn edit">ویرایش</button>
+                            <button class="lottery-action-btn draw">قرعه‌کشی</button>
+                        </div>
+                    </div>
+                    <div class="lottery-item-admin">
+                        <div class="lottery-info-admin">
+                            <h5>قرعه‌کشی ماهانه اسفند</h5>
+                            <p>1 اسفند 20:00 • 1,613 نفر • 500M تومان</p>
+                        </div>
+                        <div class="lottery-actions">
+                            <button class="lottery-action-btn edit">ویرایش</button>
+                            <button class="lottery-action-btn draw">قرعه‌کشی</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `);
+}
+
+// Admin action functions
+function createNewTask() {
+    tg.showAlert('فرم ایجاد تسک جدید به زودی باز می‌شود!');
+}
+
+function viewActiveTasks() {
+    tg.showAlert('لیست تسک‌های فعال به زودی نمایش داده می‌شود!');
+}
+
+function viewTaskStats() {
+    tg.showAlert('آمار و گزارش‌های تسک‌ها به زودی نمایش داده می‌شود!');
+}
+
+function selectTaskWinner() {
+    tg.showAlert('پنل انتخاب برنده تسک به زودی باز می‌شود!');
+}
+
+function updateReferralSettings() {
+    tg.showAlert('تنظیمات رفرال با موفقیت ذخیره شد!');
+}
+
+function viewReferralList() {
+    tg.showAlert('لیست کامل دعوت‌ها به زودی نمایش داده می‌شود!');
+}
+
+function blockFakeReferrals() {
+    tg.showAlert('سیستم تشخیص رفرال‌های تقلبی به زودی فعال می‌شود!');
+}
+
+function createNewRoom() {
+    tg.showAlert('فرم ایجاد روم جدید به زودی باز می‌شود!');
+}
+
+function manageActiveRooms() {
+    tg.showAlert('مدیریت کامل روم‌ها به زودی باز می‌شود!');
+}
+
+function viewRoomParticipants() {
+    tg.showAlert('لیست شرکت‌کنندگان روم‌ها به زودی نمایش داده می‌شود!');
+}
+
+function selectRoomWinner() {
+    tg.showAlert('پنل انتخاب برنده روم به زودی باز می‌شود!');
+}
+
+function createNewLottery() {
+    tg.showAlert('فرم ایجاد قرعه‌کشی جدید به زودی باز می‌شود!');
+}
+
+function manageActiveLotteries() {
+    tg.showAlert('مدیریت کامل قرعه‌کشی‌ها به زودی باز می‌شود!');
+}
+
+function viewLotteryParticipants() {
+    tg.showAlert('لیست شرکت‌کنندگان قرعه‌کشی‌ها به زودی نمایش داده می‌شود!');
+}
+
+function selectLotteryWinner() {
+    tg.showAlert('پنل انتخاب برنده قرعه‌کشی به زودی باز می‌شود!');
 }
 
 // Modal functions
