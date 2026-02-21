@@ -72,19 +72,19 @@ function showPage(pageId) {
             showProfilePage();
             break;
         case 'leaderboardPage':
-            tg.showAlert('لیدربورد به زودی فعال می‌شود!');
+            showLeaderboardPage();
             break;
         case 'tasksPage':
-            tg.showAlert('ماموریت‌ها به زودی فعال می‌شود!');
+            showTasksPage();
             break;
         case 'invitePage':
             showInviteDialog();
             break;
         case 'winnersPage':
-            tg.showAlert('صفحه برندگان به زودی فعال می‌شود!');
+            showWinnersPage();
             break;
         case 'settingsPage':
-            tg.showAlert('تنظیمات به زودی فعال می‌شود!');
+            showSettingsPage();
             break;
         case 'adminPage':
             if (isAdmin) {
@@ -106,6 +106,244 @@ function updateNavigation(activePage) {
     if (activeButton) {
         activeButton.classList.add('active');
     }
+}
+
+// Show leaderboard page
+function showLeaderboardPage() {
+    createModal('🏆 لیدربورد', `
+        <div class="leaderboard-modal">
+            <div class="leaderboard-header">
+                <div class="leaderboard-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>برترین کاربران</h3>
+                <p class="leaderboard-subtitle">رتبه‌بندی هفتگی</p>
+            </div>
+            <div class="leaderboard-list">
+                <div class="leaderboard-item gold">
+                    <div class="rank">1</div>
+                    <div class="user-info">
+                        <div class="user-name">علی رضایی</div>
+                        <div class="user-score">۲۵,۴۳۰ امتیاز</div>
+                    </div>
+                    <div class="rank-icon">🥇</div>
+                </div>
+                <div class="leaderboard-item silver">
+                    <div class="rank">2</div>
+                    <div class="user-info">
+                        <div class="user-name">مریم احمدی</div>
+                        <div class="user-score">۲۲,۱۸۰ امتیاز</div>
+                    </div>
+                    <div class="rank-icon">🥈</div>
+                </div>
+                <div class="leaderboard-item bronze">
+                    <div class="rank">3</div>
+                    <div class="user-info">
+                        <div class="user-name">رضا محمدی</div>
+                        <div class="user-score">۱۹,۹۵۰ امتیاز</div>
+                    </div>
+                    <div class="rank-icon">🥉</div>
+                </div>
+                <div class="leaderboard-item">
+                    <div class="rank">4</div>
+                    <div class="user-info">
+                        <div class="user-name">سارا حسینی</div>
+                        <div class="user-score">۱۸,۲۰۰ امتیاز</div>
+                    </div>
+                </div>
+                <div class="leaderboard-item">
+                    <div class="rank">5</div>
+                    <div class="user-info">
+                        <div class="user-name">امیر حسینی</div>
+                        <div class="user-score">۱۶,۷۵۰ امتیاز</div>
+                    </div>
+                </div>
+            </div>
+            <div class="leaderboard-footer">
+                <p class="your-rank">رتبه شما: <span class="highlight">۱۲</span></p>
+                <p class="your-score">امتیاز شما: <span class="highlight">۱۲,۵۰۰</span></p>
+            </div>
+        </div>
+    `);
+}
+
+// Show tasks page
+function showTasksPage() {
+    createModal('📝 ماموریت‌ها', `
+        <div class="tasks-modal">
+            <div class="tasks-header">
+                <div class="tasks-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>ماموریت‌های فعال</h3>
+                <p class="tasks-subtitle">ماموریت‌ها را انجام دهید و امتیاز بگیرید!</p>
+            </div>
+            <div class="tasks-list">
+                <div class="task-item">
+                    <div class="task-info">
+                        <h4>دعوت از 3 دوست</h4>
+                        <p>از 3 دوست خود به ربات دعوت کنید</p>
+                    </div>
+                    <div class="task-reward">
+                        <span class="task-points">+50</span>
+                        <button class="task-btn">انجام</button>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-info">
+                        <h4>انجام 5 تسک روزانه</h4>
+                        <p>5 تسک روزانه را کامل کنید</p>
+                    </div>
+                    <div class="task-reward">
+                        <span class="task-points">+30</span>
+                        <button class="task-btn">انجام</button>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-info">
+                        <h4>شرکت در قرعه‌کشی هفتگی</h4>
+                        <p>در قرعه‌کشی هفتگی شرکت کنید</p>
+                    </div>
+                    <div class="task-reward">
+                        <span class="task-points">+20</span>
+                        <button class="task-btn">انجام</button>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-info">
+                        <h4>پیوستن به کانال تلگرام</h4>
+                        <p>در کانال تلگرام ما عضو شوید</p>
+                    </div>
+                    <div class="task-reward">
+                        <span class="task-points">+25</span>
+                        <button class="task-btn">انجام</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tasks-progress">
+                <div class="progress-info">
+                    <span>پیشرفت امروز</span>
+                    <span>2/4</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%"></div>
+                </div>
+            </div>
+        </div>
+    `);
+}
+
+// Show winners page
+function showWinnersPage() {
+    createModal('🏆 برندگان', `
+        <div class="winners-modal">
+            <div class="winners-header">
+                <div class="winners-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h3>برندگان اخیر</h3>
+                <p class="winners-subtitle">تبریک به برندگان خوش‌شانس!</p>
+            </div>
+            <div class="winners-list">
+                <div class="winner-item">
+                    <div class="winner-date">۱۴ بهمن ۱۴۰۲</div>
+                    <div class="winner-info">
+                        <div class="winner-name">علی رضایی</div>
+                        <div class="winner-prize">قرعه‌کشی هفتگی - ۱۰۰ میلیون تومان</div>
+                    </div>
+                    <div class="winner-badge">🎉</div>
+                </div>
+                <div class="winner-item">
+                    <div class="winner-date">۷ بهمن ۱۴۰۲</div>
+                    <div class="winner-info">
+                        <div class="winner-name">مریم احمدی</div>
+                        <div class="winner-prize">کاستوم روم - ۵۰۰۰ امتیاز</div>
+                    </div>
+                    <div class="winner-badge">🎮</div>
+                </div>
+                <div class="winner-item">
+                    <div class="winner-date">۳۱ دی ۱۴۰۲</div>
+                    <div class="winner-info">
+                        <div class="winner-name">رضا محمدی</div>
+                        <div class="winner-prize">قرعه‌کشی ماهانه - ۵۰۰ میلیون تومان</div>
+                    </div>
+                    <div class="winner-badge">💰</div>
+                </div>
+                <div class="winner-item">
+                    <div class="winner-date">۲۴ دی ۱۴۰۲</div>
+                    <div class="winner-info">
+                        <div class="winner-name">سارا حسینی</div>
+                        <div class="winner-prize">تورنمنت ویژه - گوشی آیفون</div>
+                    </div>
+                    <div class="winner-badge">📱</div>
+                </div>
+            </div>
+            <div class="winners-footer">
+                <p class="next-draw">قرعه‌کشی بعدی: جمعه ساعت ۲۱:۰۰</p>
+                <button class="enter-lottery-btn">شرکت در قرعه‌کشی</button>
+            </div>
+        </div>
+    `);
+}
+
+// Show settings page
+function showSettingsPage() {
+    createModal('⚙️ تنظیمات', `
+        <div class="settings-modal">
+            <div class="settings-header">
+                <div class="settings-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <h3>تنظیمات برنامه</h3>
+            </div>
+            <div class="settings-list">
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4>اعلان‌ها</h4>
+                        <p>دریافت اعلان‌های مهم</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4>لرزش هنگام کلیک</h4>
+                        <p>بازخورد لرزشی در لمس</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4>حالت شب</h4>
+                        <p>تم تیره برای راحتی چشم</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h4>زبان برنامه</h4>
+                        <p>انتخاب زبان نمایش</p>
+                    </div>
+                    <select class="setting-select">
+                        <option>فارسی</option>
+                        <option>English</option>
+                    </select>
+                </div>
+            </div>
+            <div class="settings-footer">
+                <button class="save-settings-btn">ذخیره تنظیمات</button>
+                <button class="reset-settings-btn">بازنشانی تنظیمات</button>
+            </div>
+        </div>
+    `);
 }
 
 // Show profile page
