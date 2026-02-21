@@ -89,43 +89,10 @@ body {
     z-index: 10;
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-}
-
-.header-center {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.gameino-logo {
-    font-size: 18px;
-    font-weight: 900;
-    color: #f1c40f;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.profile-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.profile-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
+.mini-app-text {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
 }
 
 .diamond-badge {
@@ -295,6 +262,7 @@ body {
 
 /* Feature Panels */
 .feature-panel {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(41, 128, 185, 0.9));
     border-radius: 20px;
     border: 3px solid #f1c40f;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -305,22 +273,6 @@ body {
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
-}
-
-.lottery-panel {
-    background: linear-gradient(135deg, #9b59b6, #8e44ad);
-}
-
-.monthly-panel {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-}
-
-.missions-panel {
-    background: linear-gradient(135deg, #3498db, #2980b9);
-}
-
-.challenge-panel {
-    background: linear-gradient(135deg, #16a085, #27ae60);
 }
 
 .feature-panel::before {
@@ -447,33 +399,6 @@ body {
     border: 2px solid #f1c40f;
 }
 
-/* Icon Styles */
-.lottery-icon,
-.monthly-icon,
-.challenge-icon {
-    width: 70px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.lottery-icon i,
-.monthly-icon i,
-.challenge-icon i {
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
 /* Mission Character */
 .mission-character {
     position: relative;
@@ -577,11 +502,10 @@ body {
 
 /* Statistics Bar */
 .stats-bar {
-    display: flex;
-    justify-content: center;
     padding: 15px;
-    gap: 15px;
-    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(5px);
 }

@@ -552,126 +552,6 @@ window.addEventListener('error', function(e) {
 });
 
 // Export functions for global access
-// New functions for updated UI
-function showProfilePage() {
-    const profileHTML = `
-        <div style="text-align: center;">
-            <div style="margin-bottom: 20px;">
-                <i class="fas fa-user-circle" style="font-size: 64px; color: #f1c40f;"></i>
-            </div>
-            <h3 style="color: #f1c40f; margin-bottom: 15px;">پروفایل کاربری</h3>
-            <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.2);">
-                <div style="text-align: right; margin-bottom: 10px;">
-                    <div style="font-weight: 700; color: #ffffff; margin-bottom: 5px;">نام: ${currentUser?.first_name || 'Player'}</div>
-                    <div style="font-size: 12px; color: rgba(255, 255, 255, 0.7);">ID: ${currentUser?.id || '---'}</div>
-                </div>
-                <div style="display: flex; justify-content: space-around; text-align: center;">
-                    <div>
-                        <div style="color: #f1c40f; font-weight: 700; font-size: 18px;">${gameState.missionsCompleted.length}</div>
-                        <div style="font-size: 10px; color: rgba(255, 255, 255, 0.7);">تسک‌های انجام شده</div>
-                    </div>
-                    <div>
-                        <div style="color: #2ecc71; font-weight: 700; font-size: 18px;">3</div>
-                        <div style="font-size: 10px; color: rgba(255, 255, 255, 0.7);">جوایز برنده شده</div>
-                    </div>
-                </div>
-            </div>
-            <button onclick="closeModal()" style="background: linear-gradient(135deg, #e67e22, #d35400); border: none; border-radius: 10px; padding: 12px 24px; color: white; font-weight: 700; cursor: pointer;">
-                بستن
-            </button>
-        </div>
-    `;
-    
-    showModal('پروفایل', profileHTML);
-}
-
-function showWeeklyLottery() {
-    const lotteryHTML = `
-        <div style="text-align: center;">
-            <div style="margin-bottom: 20px;">
-                <i class="fas fa-gift" style="font-size: 48px; color: #f1c40f;"></i>
-            </div>
-            <h3 style="color: #f1c40f; margin-bottom: 15px;">قرعه کشی هفتگی</h3>
-            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
-                هر هفته به 10 نفر برنده جایزه ویژه!
-            </p>
-            <div style="background: rgba(241, 196, 15, 0.1); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(241, 196, 15, 0.3);">
-                <div style="color: #f1c40f; font-weight: 700; margin-bottom: 10px;">جایزه‌ها:</div>
-                <div style="font-size: 12px; color: rgba(255, 255, 255, 0.8); text-align: right;">
-                    • جایزه اول: 1,000,000 تومان<br>
-                    • جایزه دوم: 500,000 تومان<br>
-                    • 8 جایزه 100,000 تومانی
-                </div>
-            </div>
-            <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.2);">
-                <div style="font-size: 12px; color: rgba(255, 255, 255, 0.7); margin-bottom: 5px;">زمان باقی‌مانده:</div>
-                <div style="color: #ffffff; font-weight: 700;">2 روز و 14 ساعت</div>
-            </div>
-            <button onclick="closeModal()" style="background: linear-gradient(135deg, #e67e22, #d35400); border: none; border-radius: 10px; padding: 12px 24px; color: white; font-weight: 700; cursor: pointer;">
-                شرکت در قرعه کشی
-            </button>
-        </div>
-    `;
-    
-    showModal('قرعه کشی هفتگی', lotteryHTML);
-}
-
-function showMonthlyLottery() {
-    const lotteryHTML = `
-        <div style="text-align: center;">
-            <div style="margin-bottom: 20px;">
-                <i class="fas fa-calendar-alt" style="font-size: 48px; color: #e74c3c;"></i>
-            </div>
-            <h3 style="color: #e74c3c; margin-bottom: 15px;">قرعه کشی ماهانه</h3>
-            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
-                جایزه بزرگ ماهانه برای یک نفر خوش‌شانس!
-            </p>
-            <div style="background: rgba(231, 76, 60, 0.1); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(231, 76, 60, 0.3);">
-                <div style="color: #e74c3c; font-weight: 700; margin-bottom: 10px; font-size: 20px;">جایزه بزرگ: 10,000,000 تومان!</div>
-                <div style="font-size: 12px; color: rgba(255, 255, 255, 0.8);">
-                    به یک نفر برنده ماهانه
-                </div>
-            </div>
-            <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.2);">
-                <div style="font-size: 12px; color: rgba(255, 255, 255, 0.7); margin-bottom: 5px;">زمان باقی‌مانده:</div>
-                <div style="color: #ffffff; font-weight: 700;">18 روز و 14 ساعت</div>
-            </div>
-            <button onclick="closeModal()" style="background: linear-gradient(135deg, #e74c3c, #c0392b); border: none; border-radius: 10px; padding: 12px 24px; color: white; font-weight: 700; cursor: pointer;">
-                شرکت در قرعه کشی
-            </button>
-        </div>
-    `;
-    
-    showModal('قرعه کشی ماهانه', lotteryHTML);
-}
-
-function enterChallenge() {
-    const challengeHTML = `
-        <div style="text-align: center;">
-            <div style="margin-bottom: 20px;">
-                <i class="fas fa-gamepad" style="font-size: 48px; color: #27ae60;"></i>
-            </div>
-            <h3 style="color: #27ae60; margin-bottom: 15px;">ورود به چالش اختصاصی</h3>
-            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
-                کد چالش خود را وارد کنید:
-            </p>
-            <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.2);">
-                <input type="text" placeholder="کد چالش را وارد کنید" style="width: 100%; padding: 10px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 5px; color: white; text-align: center; font-size: 16px;">
-            </div>
-            <div style="display: flex; gap: 10px; justify-content: center;">
-                <button onclick="closeModal()" style="background: linear-gradient(135deg, #27ae60, #229954); border: none; border-radius: 10px; padding: 12px 20px; color: white; font-weight: 700; cursor: pointer;">
-                    ورود به چالش
-                </button>
-                <button onclick="closeModal()" style="background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px; padding: 12px 20px; color: white; font-weight: 700; cursor: pointer;">
-                    انصراف
-                </button>
-            </div>
-        </div>
-    `;
-    
-    showModal('چالش اختصاصی', challengeHTML);
-}
-
 window.startSpinWheel = startSpinWheel;
 window.closeSpinWheel = closeSpinWheel;
 window.spin = spin;
@@ -682,10 +562,6 @@ window.shareInviteLink = shareInviteLink;
 window.showWinnersPage = showWinnersPage;
 window.closeModal = closeModal;
 window.showPage = handleNavigation;
-window.showProfilePage = showProfilePage;
-window.showWeeklyLottery = showWeeklyLottery;
-window.showMonthlyLottery = showMonthlyLottery;
-window.enterChallenge = enterChallenge;
     
     const activeButton = document.querySelector(`[onclick="showPage('${activePage}')"]`);
     if (activeButton) {
