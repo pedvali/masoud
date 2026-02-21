@@ -1712,3 +1712,817 @@ input:checked + .slider:before {
         justify-content: flex-end;
     }
 }
+
+/* Admin Management Styles */
+.admin-item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.admin-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.admin-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.admin-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.admin-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.admin-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.admin-details {
+    text-align: right;
+}
+
+.admin-details h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.admin-details p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+}
+
+.admin-actions-row {
+    display: flex;
+    gap: 8px;
+}
+
+.admin-action-small {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-action-small.edit {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+}
+
+.admin-action-small.edit:hover {
+    background: rgba(255, 193, 7, 0.3);
+}
+
+.admin-action-small.remove {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+}
+
+.admin-action-small.remove:hover {
+    background: rgba(244, 67, 54, 0.3);
+}
+
+/* Add Admin Form Styles */
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: right;
+}
+
+.form-input,
+.form-select {
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: #4facfe;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-select option {
+    background: #1e293b;
+    color: #ffffff;
+}
+
+.permissions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.permission-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.permission-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.permission-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #4facfe;
+}
+
+.permission-item span {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.form-actions .admin-action-btn {
+    flex: 1;
+}
+
+/* Update admin grid for 6 buttons */
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 480px) {
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .permissions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .admin-actions-row {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+}
+
+/* User Profile Section Styles */
+.user-profile-section {
+    margin-bottom: 24px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-summary {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(79, 172, 254, 0.5);
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-details {
+    flex: 1;
+    text-align: right;
+}
+
+.profile-details h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.profile-details p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2px;
+}
+
+.points-highlight {
+    color: #4facfe;
+    font-weight: 700;
+}
+
+/* Settings Action Button Styles */
+.setting-action-btn {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.setting-action-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.setting-action-btn.danger {
+    background: rgba(244, 67, 54, 0.2);
+    border-color: rgba(244, 67, 54, 0.3);
+    color: #f44336;
+}
+
+.setting-action-btn.danger:hover {
+    background: rgba(244, 67, 54, 0.3);
+}
+
+/* Task Button Completed Style */
+.task-btn.completed {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+/* Active Lottery Styles */
+.active-lotteries {
+    margin: 24px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.active-lotteries h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    text-align: right;
+}
+
+.lottery-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.lottery-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.lottery-info {
+    flex: 1;
+    text-align: right;
+    margin-left: 16px;
+}
+
+.lottery-info h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.lottery-info p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 4px;
+}
+
+.lottery-status {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.status-badge.active {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.participants {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.join-lottery-btn {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.join-lottery-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.view-history-btn {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-history-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Custom Room Styles */
+.active-rooms-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.room-card {
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.room-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.room-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.room-header h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.room-status {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.room-status.active {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+}
+
+.room-status.full {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+}
+
+.room-status.upcoming {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+}
+
+.room-details {
+    margin-bottom: 12px;
+}
+
+.room-details p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.room-details i {
+    width: 16px;
+    color: #4facfe;
+}
+
+.room-register-btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.room-register-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.room-register-btn.disabled {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+}
+
+.room-register-btn.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.room-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.room-btn {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.room-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Create Room Modal Styles */
+.create-room-modal {
+    text-align: center;
+}
+
+.room-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: right;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.form-input {
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #4facfe;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-select {
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.form-select option {
+    background: #1e293b;
+    color: #ffffff;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.confirm-btn {
+    flex: 1;
+    padding: 12px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.confirm-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.cancel-btn {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Lottery Confirm Modal Styles */
+.lottery-confirm-modal {
+    text-align: center;
+}
+
+.lottery-fee {
+    color: #ffc107;
+    font-weight: 700;
+    margin: 12px 0;
+}
+
+.lottery-confirm-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* History Modal Styles */
+.lottery-history-modal,
+.room-history-modal {
+    text-align: center;
+}
+
+.lottery-history-modal h3,
+.room-history-modal h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.history-info {
+    text-align: right;
+}
+
+.history-info h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.history-info p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+}
+
+.history-result {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.history-result.lost {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+}
+
+.history-result.won,
+.history-result.winner {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+}
+
+/* Rules Modal Styles */
+.rules-modal {
+    text-align: right;
+}
+
+.rules-modal h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.rules-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.rule-item {
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rule-item h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #4facfe;
+    margin-bottom: 8px;
+}
+
+.rule-item p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+}
+
+/* Support Modal Styles */
+.support-modal {
+    text-align: right;
+}
+
+.support-modal h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.support-options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.support-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.support-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.support-item i {
+    font-size: 24px;
+    color: #4facfe;
+    width: 32px;
+    text-align: center;
+}
+
+.support-item h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.support-item p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+}
