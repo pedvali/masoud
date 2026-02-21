@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="gameino-bg">
+<body class="gaming-bg">
 
     <!-- Safe Area -->
     <div class="safe-area">
@@ -19,152 +19,94 @@
             <!-- Column Container -->
             <div class="main-column">
                 
-                <!-- Top Header Bar -->
-                <header class="top-header">
-                    <div class="header-left">
-                        <span class="mini-app-text">Mini App-Telegram</span>
-                    </div>
-                    <div class="header-right">
-                        <div class="diamond-badge">
-                            <i class="fas fa-gem"></i>
-                            <span>15</span>
-                        </div>
+                <!-- Header Section -->
+                <header class="main-header">
+                    <div class="header-content">
+                        <!-- Profile Avatar - Top Left (RTL) -->
+                        <button onclick="showPage('profilePage')" class="avatar-btn">
+                            <img src="https://via.placeholder.com/42" alt="User Avatar" class="avatar-img">
+                            <div class="admin-badge" id="adminBadge" style="display: none;">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                        </button>
+                        
+                        <!-- Center Title -->
+                        <h1 class="header-title">لیدربورد</h1>
+                        
+                        <!-- Admin Access Button - Top Right -->
+                        <button id="adminAccessBtn" onclick="showPage('adminPage')" class="admin-access-btn" style="display: none;">
+                            <i class="fas fa-shield-alt"></i>
+                        </button>
                     </div>
                 </header>
 
-                <!-- Welcome Section -->
-                <section class="welcome-section">
-                    <div class="welcome-content">
-                        <div class="user-info">
-                            <h2 class="welcome-text">Welcome, Ali!</h2>
-                            <div class="level-info">
-                                <span class="level-text">Level 1</span>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 30%"></div>
-                                </div>
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="user-stats">
-                            <div class="stat-item">
-                                <i class="fas fa-coins"></i>
-                                <span>4,750</span>
-                            </div>
-                            <div class="stat-item">
-                                <i class="fas fa-trophy"></i>
-                                <span>#12</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Game Title -->
-                <div class="game-title">
-                    <div class="title-logo">
-                        <i class="fas fa-crown"></i>
-                        <span>GAMEINO LAND</span>
-                        <i class="fas fa-crown"></i>
-                    </div>
-                </div>
+                <!-- SizedBox (spacing) -->
+                <div class="spacing-20"></div>
 
                 <!-- Main Content Area -->
                 <main class="main-content">
                     
-                    <!-- Spin Wheel Panel -->
-                    <div class="feature-panel spin-panel">
-                        <div class="panel-illustration">
-                            <div class="spin-wheel">
-                                <div class="wheel-center"></div>
-                                <div class="wheel-segments">
-                                    <div class="segment segment-1"></div>
-                                    <div class="segment segment-2"></div>
-                                    <div class="segment segment-3"></div>
-                                    <div class="segment segment-4"></div>
-                                    <div class="segment segment-5"></div>
-                                    <div class="segment segment-6"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-content">
-                            <h3 class="panel-title">خوش آمدی علی عزیز!</h3>
-                            <button class="main-action-btn" onclick="startSpinWheel()">
-                                <i class="fas fa-play"></i>
-                                شروع گردونه
-                            </button>
-                            <div class="status-badge">
-                                <i class="fas fa-sun"></i>
-                                <span>وضعیت امروز: فعال</span>
+                    <!-- Leaderboard Card -->
+                    <div class="game-card lottery-card" onclick="showPage('leaderboardPage')">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <h3 class="card-title">لیدربورد</h3>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Missions Panel -->
-                    <div class="feature-panel missions-panel">
-                        <div class="panel-illustration">
-                            <div class="mission-character">
-                                <div class="character-avatar">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="check-mark">
-                                    <i class="fas fa-check"></i>
-                                </div>
+                    <!-- Weekly/Monthly Lottery Card -->
+                    <div class="game-card lottery-card" onclick="enterLottery('weekly')">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <h3 class="card-title">قرعه کشی هفتگی و ماهانه</h3>
                             </div>
-                        </div>
-                        <div class="panel-content">
-                            <h3 class="panel-title">انجام ماموریت ها</h3>
-                            <button class="main-action-btn" onclick="showMissions()">
-                                <i class="fas fa-star"></i>
-                                دریافت امتیاز ویژه
-                            </button>
                         </div>
                     </div>
 
-                    <!-- Invite Friends Panel -->
-                    <div class="feature-panel invite-panel">
-                        <div class="panel-illustration">
-                            <div class="invite-characters">
-                                <div class="character character-1">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="character character-2">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="diamond-large">
-                                    <i class="fas fa-gem"></i>
-                                </div>
+                    <!-- Custom Room Card -->
+                    <div class="game-card custom-room-card" onclick="enterCustomRoom()">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <h3 class="card-title">کاستوم روم</h3>
                             </div>
                         </div>
-                        <div class="panel-content">
-                            <h3 class="panel-title">دعوت دوستان</h3>
-                            <p class="panel-description">لینک اختصاصی خود را به اشتراک گذارید.</p>
-                            <button class="main-action-btn" onclick="showInviteDialog()">
-                                <i class="fas fa-share"></i>
-                                اشتراک گذاری لینک
-                            </button>
+                    </div>
+
+                    <!-- Additional Cards for Scrolling Test -->
+                    <div class="game-card lottery-card" onclick="showPage('tasksPage')">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <h3 class="card-title">مأموریت‌های روزانه</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card custom-room-card" onclick="showPage('winnersPage')">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <h3 class="card-title">برندگان ماه</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card lottery-card" onclick="showPage('invitePage')">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <h3 class="card-title">دعوت دوستان</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card custom-room-card" onclick="showPage('settingsPage')">
+                        <div class="card-content">
+                            <div class="card-text">
+                                <h3 class="card-title">تنظیمات حساب</h3>
+                            </div>
                         </div>
                     </div>
 
                 </main>
-
-                <!-- Statistics Bar -->
-                <section class="stats-bar">
-                    <div class="stat-card">
-                        <i class="fas fa-ticket-alt"></i>
-                        <span>جایزه‌های خفن: 6 نفر</span>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-key"></i>
-                        <span>رتبه فعلی: 15 نفر</span>
-                    </div>
-                    <div class="winner-announcement">
-                        <i class="fas fa-bell"></i>
-                        <span>الان Ali برنده 000,000 تومن شد</span>
-                    </div>
-                </section>
             </div>
         </div>
     </div>
@@ -172,51 +114,28 @@
     <!-- Navigation Bar -->
     <nav class="bottom-nav">
         <div class="nav-content">
-            <button class="nav-item" onclick="showPage('invitePage')">
-                <i class="fas fa-users"></i>
-                <span>دعوت</span>
-            </button>
-            <button class="nav-item" onclick="startSpinWheel()">
-                <i class="fas fa-dice"></i>
-                <span>گردونه</span>
-            </button>
-            <button class="nav-item active" onclick="showPage('mainPage')">
-                <i class="fas fa-home"></i>
-                <span>صفحه اصلی</span>
-            </button>
-            <button class="nav-item" onclick="showMissions()">
-                <i class="fas fa-tasks"></i>
-                <span>تسکها</span>
-            </button>
             <button class="nav-item" onclick="showPage('winnersPage')">
                 <i class="fas fa-trophy"></i>
                 <span>برندگان</span>
             </button>
+            <button class="nav-item" onclick="showPage('tasksPage')">
+                <i class="fas fa-tasks"></i>
+                <span>تسک‌ها</span>
+            </button>
+            <button class="nav-item active" onclick="showPage('mainPage')">
+                <i class="fas fa-home"></i>
+                <span>خانه</span>
+            </button>
+            <button class="nav-item" onclick="showPage('invitePage')">
+                <i class="fas fa-user-friends"></i>
+                <span>دعوت</span>
+            </button>
+            <button class="nav-item" onclick="showPage('settingsPage')">
+                <i class="fas fa-cog"></i>
+                <span>تنظیمات</span>
+            </button>
         </div>
     </nav>
-
-    <!-- Spin Wheel Modal -->
-    <div id="spinWheelModal" class="modal-overlay">
-        <div class="modal-content spin-modal">
-            <div class="modal-header">
-                <h3>چرخ شانس</h3>
-                <button class="modal-close" onclick="closeSpinWheel()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="spin-wheel-large">
-                    <div class="wheel-center-large"></div>
-                    <div class="wheel-pointer"></div>
-                </div>
-                <button class="spin-btn" onclick="spin()">
-                    <i class="fas fa-play"></i>
-                    چرخاندن
-                </button>
-                <div class="spin-result" id="spinResult"></div>
-            </div>
-        </div>
-    </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="script.js"></script>
